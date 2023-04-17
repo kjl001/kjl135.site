@@ -1,0 +1,19 @@
+name: Deploy To Site
+on:
+  push:
+    branches: [main]
+    
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy Site
+        uses: appleboy/ssh-action@v0.1.2
+        with:
+          host: ${{secrets.SSH_HOST}}
+          key: ${{secrets.SSH_KEY}}
+          username: $${{secrets.SSH_USERNAME}}
+          
+          script: |
+            cd /var/www/kjl135.site/public_html
+            git pull

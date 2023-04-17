@@ -12,40 +12,45 @@
 </head>
 
 <body>
-  <header>
-	  <section id="class">
-	  	<h1>CSE 135</h1>
-	  	<h2>Spring 2023</h2>
-	  </section>
+	<header>
+		<section id="class">
+		<h1>CSE 135</h1>
+		<h2>Spring 2023</h2>
+		</section>
 
-	  <section id="members">
-	  	<h2>Team Solo</h2>
+		<section id="members">
+		<h2>Team Solo</h2>
 		<p><i>A team of me myself and I. Would it have been better to have more members? Maybe. But I don't got the time for that.</i></p>
 		<p>Team Members<p>
 		<ul>
 			<li><a href="https://kjl135.site/members/kevinlee.html">Kevin Lee</a></li>
 		</ul>
-	  </section>
-  </header>
+		</section>
+	</header>
 
-  <main>
-	  <h2>Homework 1</h2>
-	  <ul>
-		  <li><a href="https://kjl135.site/hello.php">PHP</a></li>
-		  <li><a href="https://kjl135.site/robots.txt">Robots</a></li>
-		  <li><a href="https://kjl135.site/report.html">Analytics</a></li>
-	  </ul>
+	<main>
+		<h2>Homework 1</h2>
+		<ul>
+			<li><a href="https://kjl135.site/hello.php">PHP</a></li>
+			<li><a href="https://kjl135.site/robots.txt">Robots</a></li>
+			<li><a href="https://kjl135.site/report.html">Analytics</a></li>
+		</ul>
 
-	  <h2>Homework 2</h2>
-	  <p>TBD</p>
+		<h2>Homework 2</h2>
+		<p>TBD</p>
 
-	  <h2>Analytics App</h2>
-	  <p>TBD</p>
-  </main>
+		<h2>Analytics App</h2>
+		<p>TBD</p>
+	</main>
 
-  <footer>
-	  <p style="text-align: center">A simple page for CSE 135 made with &hearts; by Kevin Lee</p>
-  </footer>
+	<footer>
+		<p style="text-align: center">A simple page for CSE 135 made with &hearts; by Kevin Lee</p>
+		<p id="time">JavaScript is turned off!</p>
+	</footer>
+
+	<script>
+		document.getElementById("time").innerText = `Site loaded on ${new Date()}`;
+	</script>
 
 </body>
 

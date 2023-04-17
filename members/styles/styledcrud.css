@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+* {
+	font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+	text-align: center;
+	text-decoration: underline;
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+main > p {
+	text-align: center;
+}
+
+#blog, #diagBox {
+	background-color: lightgray;
+	border-radius: 6px;
+	text-align: center;
+}
+
+#blog {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	padding: 10px;
+	border-color: black;
+	border-style: solid;
+	max-width: 50vw;
+	min-width: 50vw;
+	overflow-wrap: break-word;
+}
+
+#blog-form > * {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#add-blog {
+	width: 30%;
+	align-self: center;
+}
+
+#time {
+	font-style: italic;
+}
+
+#delete img, #edit img {
+	width: 1em;
+	height: 1em;
+}
+
+#delete, #edit, #add-blog {
+	background-color: lightblue;
+	border-radius: 3px;
+}
+
+	#delete:hover, #edit:hover, #add-blog:hover {
+		background-color: #789ba7;
+	}

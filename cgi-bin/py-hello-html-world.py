@@ -1,14 +1,16 @@
-#!/usr/bin/python3
+#!/usr/bin/env python
+import cgitb
 
 from datetime import date
 import socket
+
+cgitb.enable()
 
 today = date.today()
 out = today.strftime("%B %d, %Y")
 
 print("Cache-Control: no-cache\n")
-print("Content-Type: text/html")
-print()
+print("Content-Type: text/html\n\n")
 print("<html>")
 print("<head> <title>Hello Python CGI World</title> </head>")
 print("<body>")

@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import os
+import cgi
 
 print("Cache-Control: no-cache")
 print("Content-Type: text/html;charset=utf-8")
@@ -12,9 +13,9 @@ print("<body>")
 print("<h1 align=center>Python Sessions Page 1</h1>")
 print("<hr>")
 
-url = "https://kjl135.site/cgi-bin/py-sessions-1.py"
-x = requests.get(url)
+form = cgi.FieldStorage()
+name = form.getvalue('name')
+print(name)
 
-print(x.text)
 print("</body>")
 print("</html>")

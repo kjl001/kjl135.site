@@ -9,11 +9,11 @@ print("<!DOCTYPE html>")
 print("<html>")
 print("<head><title>Python Sessions</title></head>")
 print("<body>")
-print("<h1 align=center>Pythong Sessions Page 1</h1>")
+print("<h1 align=center>Python Sessions Page 1</h1>")
 print("<hr>")
 
 url = "https://kjl135.site/cgi-bin/py-sessions-1.py"
-x = requests.post(url)
+x = requests.get(url)
 
 print(x.text)
 print("</body>")

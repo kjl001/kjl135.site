@@ -17,7 +17,7 @@
 
 		$_SESSION["name"] = $_POST["name"];
 
-		echo "<br>";
+		echo "<br><br>";
 
 		echo "<a href='/cgi-bin/php-sessions-2.php'>Session Page 2</a>";
 		echo "<br>";

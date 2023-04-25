@@ -9,11 +9,11 @@
 </head>
 
 <body>
-	<h1 align=center>PHP Sessions 2</h1>
+	<h1 align=center>PHP Sessions Page 2</h1>
 	<hr>
 
 	<?php
-		echo "<b>Name: </b>" . $_SESSION["name"] . "<br>";
+		echo "<b>Name: </b>" . $_SESSION["name"] . "<br><br>";
 
 		echo "<a href='/cgi-bin/php-sessions-1.php'>Session Page 1</a>";
 		echo "<br>";

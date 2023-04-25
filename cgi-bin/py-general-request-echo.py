@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import os
+import requests
 
 print("Cache-Control: no-cache")
 print("Content-Type: text/html;charset=utf-8")

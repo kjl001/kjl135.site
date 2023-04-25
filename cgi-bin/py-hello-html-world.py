@@ -1,10 +1,7 @@
 #!/usr/bin/python3
-import cgitb
 
 from datetime import date
-import socket
-
-cgitb.enable()
+import os
 
 today = date.today()
 out = today.strftime("%B %d, %Y")
@@ -20,6 +17,6 @@ print("<hr>")
 print("Hello World<br><br>")
 print("This page was generated with the Python programming language<br><br>")
 print("The program was run at: " + out + "<br><br>")
-print("Your current IP Address is: " + socket.gethostbyname(socket.gethostname()))
+print("Your current IP Address is: " + os.environ["REMOTE_ADDR"])
 print("</body>")
 print("</html>")

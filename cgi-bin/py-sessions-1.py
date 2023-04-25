@@ -15,11 +15,16 @@ print("<hr>")
 
 form = cgi.FieldStorage()
 name = form.getvalue('name')
-print(name)
+print("<p><b>Name: </b>" + name + "</p><br>")
+
 print("<form action='/cgi-bin/py-sessions-2.py'>")
 print("<input type='hidden' name='name' value=" + name + ">")
 print("<button type='submit'>Session Page 2</button>")
 print("</form>")
+
+print("<br><br>")
+
+print("<a href='/cgi-bin/py-destroy-session.py'>Destroy Session</a>")
 
 print("</body>")
 print("</html>")

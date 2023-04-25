@@ -18,7 +18,7 @@ name = form.getvalue('name')
 print(name)
 print("<form action='/cgi-bin/py-sessions-2.py>'")
 print("<input type='hidden' name='name' value=" + name + ">")
-print("<input type='submit' value=" + "<a href='/cgi-bin/py-sessions-2.py'</a>" + ">")
+print("<button type='submit'>Session Page 2</button>")
 print("</form>")
 
 print("</body>")

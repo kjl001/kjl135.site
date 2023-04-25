@@ -10,7 +10,7 @@ today = date.today()
 out = today.strftime("%B %d, %Y")
 
 print("Cache-Control: no-cache\n")
-print("Content-type: text/html\n\n")
+print("Content-type: text/html\r\n")
 print("<html>")
 print("<head> <title>Hello Python CGI World</title> </head>")
 print("<body>")

@@ -15,10 +15,10 @@ print("<h1 align=center>POST Request Echo</h1>")
 print("<hr>")
 
 url = "https://kjl135.site/cgi-bin/py-post.echo.py"
-x = requests.post(url)
+response = requests.get(url)
 
 print("<ul>")
-print("<li>" + x.text + "</li>")
+print("<li>" + response.json() + "</li>")
 print("</ul>")
 
 print("</body>")

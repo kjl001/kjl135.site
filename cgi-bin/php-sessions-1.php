@@ -13,9 +13,13 @@
 	<hr>
 
 	<?php
-		echo "<b>Name: </b>" . $_POST["name"];
-
-		$_SESSION["name"] = $_POST["name"];
+		if($_POST["name"]) {
+			echo "<b>Name: </b>" . $_POST["name"];
+			$_SESSION["name"] = $_POST["name"];
+		}
+		else {
+			echo "<b>Name: </b>" . $_SESSION["name"];
+		}
 
 		echo "<br><br>";
 

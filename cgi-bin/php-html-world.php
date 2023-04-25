@@ -9,8 +9,8 @@
 <hr>
 
 <?php
-	echo "Hello World\n";
-	echo "The program was run at: " . date("m-d-Y h:i:sa") . "\n";
+	echo "Hello World<br>";
+	echo "The program was run at: " . date("m-d-Y h:i:sa") . "<br>";
 	echo "Your current IP Address is: " . $_SERVER['REMOTE_ADDR'];
 ?>
 

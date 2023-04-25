@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 	<head>
 		<title>GET Request Echo</title>
 	</head>
@@ -8,7 +9,7 @@
 		<hr>
 
 		<?php
-			echo "<b>Query String:</b>";
+			echo "<b>Query String:</b><br>";
 
 			echo "<ul>";
 			foreach ($_GET as $name => $val) {

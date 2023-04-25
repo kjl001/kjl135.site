@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 	<head>
 		<title>POST Request Echo</title>
 	</head>
@@ -8,7 +9,7 @@
 		<hr>
 
 		<?php
-			echo "<b>Message Body</b>";
+			echo "<b>Message Body:</b><br>";
 
 			echo "<ul>";
 			foreach ($_POST as $header => $val) {

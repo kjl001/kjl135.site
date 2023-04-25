@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 	<head>
 		<title>Hello PHP CGI World</title>
 	</head>

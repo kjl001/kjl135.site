@@ -10,16 +10,20 @@
 		<?php
 			echo "<h2>Environment Variables</h2>";
 
+			echo "<ul>";
 			$envs = getenv();
 			foreach ($envs as $env => $val) {
-				echo "$env = $val<br>";
+				echo "<li>$env = $val</li>";
 			}
+			echo "</ul>";
 
 			echo "<h2>Server Variables</h2>";
 
+			echo "<ul>";
 			foreach($_SERVER as $serv => $val) {
-				echo "$serv = $val<br>";
+				echo "<li>$serv = $val</li>";
 			}
+			echo "</ul>";
 		?>
 	</body>
 </html>

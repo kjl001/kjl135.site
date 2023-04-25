@@ -18,7 +18,7 @@ url = "https://kjl135.site/cgi-bin/py-post.echo.py"
 response = requests.get(url)
 
 print("<ul>")
-print("<li>" + response.json() + "</li>")
+print("<li>" + response.text + "</li>")
 print("</ul>")
 
 print("</body>")

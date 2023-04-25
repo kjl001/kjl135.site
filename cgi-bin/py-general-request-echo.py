@@ -17,11 +17,11 @@ print("<p><b>Request Method: </b>" + os.environ["REQUEST_METHOD"] + "</p>")
 print("<p><b>Protocol: </b>" + os.environ["SERVER_PROTOCOL"] + "</p>")
 print("<p><b>Query String: </b>" + os.environ["QUERY_STRING"] + "</p>")
 print("<p><b>Message Body: </b></p>")
-url = "https://kjl135.site/cgi-bin/py-post.echo.py"
-x = requests.post(url)
+url = "https://kjl135.site/cgi-bin/py-general-request-echo.py"
+response = requests.get(url)
 
 print("<ul>")
-print("<li>" + x.text + "</li>")
+print("<li>" + response.text + "</li>")
 print("</ul>")
 
 print("</body>")

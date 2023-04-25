@@ -27,6 +27,7 @@ else:
 	print("<button type='submit'>Session Page 2</button>")
 	print("</form>")
 
+print("<a href='/py-cgiform.html'>CGI Form</a>")
 
 print("<br><br>")
 

@@ -42,3 +42,8 @@ main > p {
 footer {
 	text-align: center;
 }
+
+#hw2 {
+	display: flex;
+	flex-direction: row;
+}

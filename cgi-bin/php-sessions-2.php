@@ -13,7 +13,14 @@
 	<hr>
 
 	<?php
-		echo "<b>Name: </b>" . $_SESSION["name"] . "<br><br>";
+		if($_SESSION["name"]) {
+			echo "<b>Name: </b>" . $_SESSION["name"];
+		}
+		else {
+			echo "<b>Name: </b> You do not have a name set";
+		}
+
+		echo "<br><br>";
 
 		echo "<a href='/cgi-bin/php-sessions-1.php'>Session Page 1</a>";
 		echo "<br>";

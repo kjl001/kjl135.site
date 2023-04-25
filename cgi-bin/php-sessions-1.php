@@ -17,8 +17,11 @@
 			echo "<b>Name: </b>" . $_POST["name"];
 			$_SESSION["name"] = $_POST["name"];
 		}
-		else {
+		else if($_SESSION["name"]){
 			echo "<b>Name: </b>" . $_SESSION["name"];
+		}
+		else {
+			echo "<b>Name: </b> You do not have a name set";
 		}
 
 		echo "<br><br>";

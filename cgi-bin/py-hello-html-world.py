@@ -9,6 +9,7 @@ cgitb.enable()
 today = date.today()
 out = today.strftime("%B %d, %Y")
 
+print("Cache-Control: no-cache\n")
 print("Content-Type: text/html;charset=utf-8")
 print ("Content-type:text/html\r\n")
 print("<html>")

@@ -20,7 +20,7 @@
 			}
 			echo "</ul>";
 
-			echo "<br><br>"
+			echo "<br><br>";
 
 			echo "<b>Message Body:</b>";
 			echo "<ul>";

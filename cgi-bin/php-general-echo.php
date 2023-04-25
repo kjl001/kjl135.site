@@ -20,8 +20,6 @@
 			}
 			echo "</ul>";
 
-			echo "<br><br>";
-
 			echo "<b>Message Body:</b>";
 			echo "<ul>";
 			foreach ($_POST as $header => $val) {

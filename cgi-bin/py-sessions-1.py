@@ -15,7 +15,10 @@ print("<hr>")
 
 form = cgi.FieldStorage()
 name = form.getvalue('name')
-print("<p><b>Name: </b>" + name + "</p><br>")
+if name:
+	print("<p><b>Name: </b>" + name + "</p><br>")
+else:
+	print("<p><b>Name: </b>You do not have a name set</p><br>")
 
 print("<form action='/cgi-bin/py-sessions-2.py'>")
 print("<input type='hidden' name='name' value=" + name + ">")

@@ -17,13 +17,16 @@ form = cgi.FieldStorage()
 name = form.getvalue('name')
 if name:
 	print("<p><b>Name: </b>" + name + "</p><br>")
+	print("<form action='/cgi-bin/py-sessions-2.py'>")
+	print("<input type='hidden' name='name' value=" + name + ">")
+	print("<button type='submit'>Session Page 2</button>")
+	print("</form>")
 else:
 	print("<p><b>Name: </b>You do not have a name set</p><br>")
+	print("<form action='/cgi-bin/py-sessions-2.py'>")
+	print("<button type='submit'>Session Page 2</button>")
+	print("</form>")
 
-print("<form action='/cgi-bin/py-sessions-2.py'>")
-print("<input type='hidden' name='name' value=" + name + ">")
-print("<button type='submit'>Session Page 2</button>")
-print("</form>")
 
 print("<br><br>")
 

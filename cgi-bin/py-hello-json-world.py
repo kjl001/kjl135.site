@@ -13,7 +13,9 @@ out = {
 	"ipAddress": os.environ["REMOTE_ADDR"]
 }
 
-print("<!DOCTYPE html>")
+print("Cache-Control: no-cache")
+print("Content-Type: text/html;charset=utf-8")
+print ("Content-type:text/html\r\n")
 print("<html>")
 print("<head><title>Hello Python CGI World</title></head>")
 print("<body>")

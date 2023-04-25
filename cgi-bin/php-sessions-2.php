@@ -9,17 +9,13 @@
 </head>
 
 <body>
-	<h1 align=center>PHP Sessions Page 1</h1>
+	<h1 align=center>PHP Sessions 2</h1>
 	<hr>
 
 	<?php
-		echo "<b>Name: </b>" . $_POST["name"];
+		echo "<b>Name: </b>" . $_SESSION["name"] . "<br>";
 
-		$_SESSION["name"] = $_POST["name"];
-
-		echo "<br>";
-
-		echo "<a href='/cgi-bin/php-sessions-2.php'>Session Page 2</a>";
+		echo "<a href='/cgi-bin/php-sessions-1.php'>Session Page 1</a>";
 		echo "<br>";
 
 		echo "<a href='/php-cgiform.html'>PHP CGI Form</a>";

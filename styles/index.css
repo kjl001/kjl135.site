@@ -46,4 +46,14 @@ footer {
 #hw2 {
 	display: flex;
 	flex-direction: row;
+	background-color: lightgray;
+	padding-top: 5px;
+}
+
+#hw2 label {
+	padding-left: 10px;
+}
+
+#hw2 ul {
+	padding-left: 25px;
 }

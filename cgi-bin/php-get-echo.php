@@ -4,7 +4,7 @@
 	</head>
 
 	<body>
-		<h1>GET Request Echo</h1>
+		<h1 align=center>GET Request Echo</h1>
 		<hr>
 
 		<?php

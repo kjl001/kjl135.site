@@ -13,4 +13,9 @@ out = {
 	"ipAddress": os.environ["REMOTE_ADDR"]
 }
 
+print("<html>")
+print("<head><title>Hello Python CGI World</title></head>")
+print("<body>")
 print(out)
+print("</body>")
+print("</html>")

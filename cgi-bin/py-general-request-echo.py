@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 import os
-import requests
+import sys
 
 print("Cache-Control: no-cache")
 print("Content-Type: text/html;charset=utf-8")
@@ -17,11 +17,10 @@ print("<p><b>Request Method: </b>" + os.environ["REQUEST_METHOD"] + "</p>")
 print("<p><b>Protocol: </b>" + os.environ["SERVER_PROTOCOL"] + "</p>")
 print("<p><b>Query String: </b>" + os.environ["QUERY_STRING"] + "</p>")
 print("<p><b>Message Body: </b></p>")
-url = "https://kjl135.site/cgi-bin/py-general-request-echo.py"
-response = requests.get(url)
 
+data = sys.stdin.read()
 print("<ul>")
-print("<li>" + response.text + "</li>")
+print("<li>" + data + "</li>")
 print("</ul>")
 
 print("</body>")

@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 import os
-import requests
 import sys
 
 print("Cache-Control: no-cache")
@@ -15,10 +14,9 @@ print("<body>")
 print("<h1 align=center>POST Request Echo</h1>")
 print("<hr>")
 
-url = "https://kjl135.site/cgi-bin/py-post.echo.py"
-response = requests.get(url)
-
 data = sys.stdin.read()
+
+print("<p><b>Message Body: </b></p>")
 
 print("<ul>")
 print("<li>" + data + "</li>")

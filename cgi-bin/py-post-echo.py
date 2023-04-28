@@ -2,6 +2,7 @@
 
 import os
 import requests
+import sys
 
 print("Cache-Control: no-cache")
 print("Content-Type: text/html;charset=utf-8")
@@ -17,8 +18,10 @@ print("<hr>")
 url = "https://kjl135.site/cgi-bin/py-post.echo.py"
 response = requests.get(url)
 
+data = sys.stdin.read()
+
 print("<ul>")
-print("<li>" + response.text + "</li>")
+print("<li>" + data + "</li>")
 print("</ul>")
 
 print("</body>")

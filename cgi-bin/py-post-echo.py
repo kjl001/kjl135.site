@@ -14,13 +14,7 @@ print("<body>")
 print("<h1 align=center>POST Request Echo</h1>")
 print("<hr>")
 
-data = sys.stdin.read()
-
-print("<p><b>Message Body: </b></p>")
-
-print("<ul>")
-print("<li>" + data + "</li>")
-print("</ul>")
+print("<p><b>Message Body: </b></p>" + sys.stdin.read())
 
 print("</body>")
 print("</html>")

@@ -16,12 +16,7 @@ print("<hr>")
 print("<p><b>Request Method: </b>" + os.environ["REQUEST_METHOD"] + "</p>")
 print("<p><b>Protocol: </b>" + os.environ["SERVER_PROTOCOL"] + "</p>")
 print("<p><b>Query String: </b>" + os.environ["QUERY_STRING"] + "</p>")
-print("<p><b>Message Body: </b></p>")
-
-data = sys.stdin.read()
-print("<ul>")
-print("<li>" + data + "</li>")
-print("</ul>")
+print("<p><b>Message Body: </b></p>" + sys.stdin.read())
 
 print("</body>")
 print("</html>")

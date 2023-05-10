@@ -1,0 +1,24 @@
+{
+  "name": "public_html",
+  "version": "1.0.0",
+  "description": "https://kjl135.site",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kjl001/kjl135.site.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kjl001/kjl135.site/issues"
+  },
+  "homepage": "https://github.com/kjl001/kjl135.site#readme",
+  "devDependencies": {
+    "json-server": "^0.17.3"
+  }
+}

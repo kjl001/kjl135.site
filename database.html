@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Kevin Lee's CSE135 Site Database">
+	<meta name="author" content="Kevin Lee">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>KJL135 Site Database</title>
+	<link href="images/favicon.ico" rel="icon">
+
+	<script src="https://cdn.zinggrid.com/zinggrid.min.js" defer></script>
+</head>
+
+<body>
+	<zing-grid id="table" caption="Initial Browser Data"
+			   data="">
+	</zing-grid>
+
+	<script>
+		async function get() {
+			const url = "https://kjl135.site/mysql/static"
+			const res = await fetch(url, {
+				method: "GET",
+				headers: {
+					"Content-Type": "application/json"
+				}
+			}).then(response => {
+				console.log(response);
+			}).catch(error => {
+				console.log(error);
+			});
+		}
+
+		window.onload = get;
+	</script>
+</body>
+</html>

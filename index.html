@@ -135,6 +135,7 @@
 		const staticURL = "https://kjl135.site/json/posts";
 
 		async function post() {
+			console.log(document.getElementById("hw2").style.backgroundColor);
 			const res = await fetch(staticURL, {
 				method: "POST",
 				headers: {

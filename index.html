@@ -149,12 +149,7 @@
 
 			const observer = new PerformanceObserver((list) => {
 				list.getEntries().forEach((entry) => {
-					if (Object.keys(entry.toJSON()).length != 0) {
-						performanceData["timing"] = entry.toJSON();
-						performanceData["loadStart"] = performanceData["timing"].loadEventStart;
-						performanceData["loadEnd"] = performanceData["timing"].loadEventEnd;
-						performanceData["totalLoad"] = performanceData["timing"].loadEventEnd - performanceData["timing"].loadEventStart;
-					}
+					console.log(entry.toJSON());
 				});
 			});
 

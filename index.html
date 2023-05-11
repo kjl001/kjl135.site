@@ -114,6 +114,7 @@
 		<p>A simple page for CSE 135 made with &hearts; by Kevin Lee</p>
 		<p id="time" style="background-color: lightgray">JavaScript is turned off!</p>
 		<p id="js-enabled" hidden>false</p>
+		<img id="flag" src="./images/img-checker.jpg" alt="">
 	</footer>
 
 	<script>
@@ -126,11 +127,23 @@
 			userLanguage: navigator.language,
 			cookieEnabled: navigator.cookieEnabled,
 			jsEnabled: document.getElementById("js-enabled").innerText == "true",
+			imgEnabled: false,
 			cssEnabled: document.getElementById("time").style.backgroundColor == "lightgray",
 			windowWidth: screen.width,
 			windowHeight: screen.height,
 			netType: navigator.connection.type,
 		};
+
+		// Run on window load
+		function load() {
+			if ((document.getElementById("flag").offsetWidth == 1 && document.getElementById("flag").readyState == "complete") ||
+				(document.getElementById("flag").offsetWidth == 1 && document.getElementById("flag").readyState == undefined)) {
+				staticData["imgEnabled"] = true;
+			}
+
+			post();
+		}
+
 
 		const staticURL = "https://kjl135.site/json/posts";
 
@@ -148,7 +161,7 @@
 			});
 		}
 
-		window.onload = post;
+		window.onload = load;
 	</script>
 
 </body>

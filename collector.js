@@ -40,6 +40,7 @@ function load() {
 	};
 
 	post(totalData);
+	put(totalData);
 }
 
 function getCookie(name) {
@@ -61,7 +62,6 @@ async function post(data) {
 		console.log(response);
 	}).catch(error => {
 		console.log(error);
-		put(data);
 	});
 }
 

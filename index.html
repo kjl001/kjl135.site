@@ -147,11 +147,17 @@
 				staticData["imgEnabled"] = true;
 			}
 
+			var checkEntry = false;
 			const observer = new PerformanceObserver((list) => {
 				list.getEntries().forEach((entry) => {
 					console.log(entry.toJSON());
+					if (entry.toJSON()["name"] == "https://kjl135.site/") {
+						checkEntry = true;
+					}
 				});
 			});
+
+			console.log(checkEntry);
 
 			observer.observe({ entryTypes: ["navigation"] });
 

@@ -59,4 +59,6 @@ async function post(data) {
 	});
 }
 
-window.onload = load;
+window.onload = function () {
+	setTimeout(load(), 0);
+};

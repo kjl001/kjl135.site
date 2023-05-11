@@ -1,4 +1,4 @@
-// Run on window load
+/* Run on window load */
 function load() {
 	document.getElementById("js-enabled").innerText = "true";
 
@@ -26,6 +26,7 @@ function load() {
 		staticData["imgEnabled"] = true;
 	}
 
+	/* Record performance data */
 	const perfEntries = performance.getEntriesByType("navigation");
 	const [p] = perfEntries;
 	console.log(p.toJSON());
@@ -37,7 +38,7 @@ function load() {
 	post(performanceData, "performance");
 }
 
-
+/* Post to URL */
 async function post(data, type) {
 	const url = `https://kjl135.site/json/${type}`;
 	const res = await fetch(url, {
@@ -55,8 +56,12 @@ async function post(data, type) {
 
 window.onload = function () {
 	setTimeout(load, 0);
+	idleTime();
 };
 
+/* Activity data */
+
+/* On error */
 window.addEventListener("error", (event) => {
 	const error = {
 		error: `${event.type}: ${event.message}`,
@@ -65,6 +70,7 @@ window.addEventListener("error", (event) => {
 	post(error, "activity");
 });
 
+/* Mouse activity */
 window.addEventListener("mousemove", (event) => {
 	const mouse = {
 		mouseCoordinates: `X: ${event.offsetX}, Y: ${event.offsetY}`,
@@ -89,3 +95,45 @@ window.addEventListener("scroll", (event) => {
 
 	post(scroll, "activity");
 });
+
+/* Keyboard activity */
+window.addEventListener("keydown", (event) => {
+	const data = {
+		keyPressed: event.code,
+	};
+
+	post(data, "activity");
+});
+
+window.addEventListener("keyup", (event) => {
+	const data = {
+		keyUp: event.code,
+	};
+
+	post(data, "activity");
+});
+
+/* Idle time */
+const idleData = {
+	idleEnd: new Date(),
+	idleDuration: 0
+}
+var idleStart = new Date();
+function idleTime() {
+	var time;
+	window.onload = resetTimer;
+	document.onmousemove = resetTimer;
+	document.onkeydown = resetTimer;
+
+	function send() {
+		idleData["idleEnd"] = new Date();
+		idleData["idleDuration"] = Math.abs(idleData["idleEnd"] - idleStart);
+		post(idleData, "activity");
+	}
+
+	function resetTimer() {
+		clearTimeout(time);
+		idleStart = new Date();
+		time = setTimeout(send, 2000);
+	}
+}

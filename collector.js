@@ -27,21 +27,11 @@ function load() {
 		staticData["imgEnabled"] = true;
 	}
 
-	var checkEntry = false;
-	const observer = new PerformanceObserver((list) => {
-		list.getEntries().forEach((entry) => {
-			console.log(entry.toJSON());
-			console.log("before found name");
-			if (entry.toJSON()["name"] == "https://kjl135.site/") {
-				performanceData["totalLoad"] = 42;
-				console.log("found name");
-			}
-		});
-	});
-
-	console.log(checkEntry);
-
-	observer.observe({ entryTypes: ["navigation"] });
+	const perfEntries = performance.getEntriesByType("navigation");
+	const [p] = perfEntries;
+	performanceData["loadStart"] = p.loadEventStart;
+	performanceData["loadEnd"] = p.loadEventEnd;
+	performanceData["totalLoad"] = p.loadEventEnd - p.loadEventEnd;
 
 	const totalData = {
 		static: staticData,

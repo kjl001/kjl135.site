@@ -1,9 +1,25 @@
 {
-  "posts": [
-    { "id": 1, "title": "json-server", "author": "typicode" }
-  ],
-  "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 }
-  ],
-  "profile": { "name": "typicode" }
+    "static": [
+        {
+            "id": 1,
+            "title": "Static Data",
+            "author": "kjl001"
+        }
+    ],
+
+    "performance": [
+        {
+            "id": 1,
+            "title": "Performance Data",
+            "author": "kjl001"
+        }
+    ],
+
+    "activity": [
+        {
+            "id": 1,
+            "title": "Activity Data",
+            "author": "kjl001"
+        }
+    ]
 }

@@ -1,24 +1,25 @@
-const staticData = {
-	userAgent: navigator.userAgent,
-	userLanguage: navigator.language,
-	cookieEnabled: navigator.cookieEnabled,
-	jsEnabled: document.getElementById("js-enabled").innerText == "true",
-	imgEnabled: false,
-	cssEnabled: document.getElementById("time").style.backgroundColor == "lightgray",
-	windowWidth: screen.width,
-	windowHeight: screen.height,
-	netType: navigator.connection.type
-};
-
-var performanceData = {
-	timing: {},
-	loadStart: 0,
-	loadEnd: 0,
-	totalLoad: 0
-};
-
 // Run on window load
 function load() {
+	const staticData = {
+		userAgent: navigator.userAgent,
+		userLanguage: navigator.language,
+		cookieEnabled: navigator.cookieEnabled,
+		jsEnabled: document.getElementById("js-enabled").innerText == "true",
+		imgEnabled: false,
+		cssEnabled: document.getElementById("time").style.backgroundColor == "lightgray",
+		windowWidth: screen.width,
+		windowHeight: screen.height,
+		netType: navigator.connection.type
+	};
+
+	const performanceData = {
+		timing: {},
+		loadStart: 0,
+		loadEnd: 0,
+		totalLoad: 0
+	};
+
+
 	document.getElementById("js-enabled").innerText = "true";
 
 	if ((document.getElementById("flag").offsetWidth == 1 && document.getElementById("flag").readyState == "complete") ||

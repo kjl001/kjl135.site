@@ -47,7 +47,7 @@ async function post(data, type) {
 		},
 		body: JSON.stringify(data)
 	}).then(response => {
-		console.log(response);
+		
 	}).catch(error => {
 		console.log(error);
 	});

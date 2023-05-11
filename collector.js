@@ -53,7 +53,7 @@ const url = "https://kjl135.site/json/posts";
 
 async function post(data) {
 	const res = await fetch(url, {
-		method: "POST",
+		method: "PUT",
 		headers: {
 			"Content-Type": "application/json"
 		},
@@ -61,7 +61,7 @@ async function post(data) {
 	}).then(response => {
 		console.log(response);
 	}).catch(error => {
-		put(data);
+		console.log(error);
 	});
 }
 

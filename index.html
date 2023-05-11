@@ -9,6 +9,7 @@
 	<title>CSE 135 HW Lives!</title>
 	<link href="images/favicon.ico" rel="icon">
 	<link rel="stylesheet" type="text/css" href="styles/index.css">
+	<script src="./collector.js"></script>
 
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-9S0VX3EELX"></script>
@@ -112,10 +113,43 @@
 	<footer>
 		<p>A simple page for CSE 135 made with &hearts; by Kevin Lee</p>
 		<p id="time">JavaScript is turned off!</p>
+		
+		<form id="check-js-form" onsubmit="this.js_enabled.value = 1; return true;">
+			<input type="hidden" name="js_enabled" value="0">
+		</form>
 	</footer>
 
 	<script>
 		document.getElementById("time").innerText = `Site loaded on: ${new Date()}`;
+
+		document.getElementById("check-js-form").submit();
+		const staticData = {
+			userAgent: navigator.userAgent,
+			userLanguage: navigator.language,
+			cookieEnabled: navigator.cookieEnabled,
+			jsEnabled: document.getElementById("check-js-form").js_enabled.value,
+			windowWidth: screen.width,
+			windowHeight: screen.height,
+			netType: navigator.connection.type,
+		};
+
+		const staticURL = "https://kjl135.site/json/static";
+
+		async function post() {
+			const res = await fetch(url, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(staticData)
+			}).then(response => {
+				console.log(response);
+			}).catch(error => {
+				console.log(error);
+			});
+		}
+
+		window.onload = post;
 	</script>
 
 </body>

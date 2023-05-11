@@ -50,10 +50,10 @@ function getCookie(name) {
 }
 
 
-const staticURL = "https://kjl135.site/json/posts";
+const url = "https://kjl135.site/json/posts";
 
 async function post(data) {
-	const res = await fetch(staticURL, {
+	const res = await fetch(url, {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json"
@@ -63,6 +63,17 @@ async function post(data) {
 		console.log(response);
 	}).catch(error => {
 		console.log(error);
+		const update = await fetch(url, {
+			method: "PUT",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(data)
+		}).then(response => {
+			console.log(response)
+		}).catch(error => {
+			console.log(error);
+		});
 	});
 }
 

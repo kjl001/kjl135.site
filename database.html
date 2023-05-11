@@ -25,7 +25,8 @@
 					"Content-Type": "application/json"
 				}
 			}).then(response => {
-				console.log(response);
+				let data = await response.json();
+				document.getElementById("table").data = data;
 			}).catch(error => {
 				console.log(error);
 			});

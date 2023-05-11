@@ -106,7 +106,7 @@
 			</section>
 		</section>
 
-		<h2>Analytics App</h2>
+		<h2>Homework 3</h2>
 		<p>TBD</p>
 	</main>
 
@@ -121,10 +121,12 @@
 
 		document.getElementById("js-enabled").innerText = "true";
 		const staticData = {
+			dataType: "static",
 			userAgent: navigator.userAgent,
 			userLanguage: navigator.language,
 			cookieEnabled: navigator.cookieEnabled,
-			jsEnabled: document.getElementById("js-enabled").innerText,
+			jsEnabled: document.getElementById("js-enabled").innerText == "true",
+			cssEnabled: document.getElementById("hw2").style.backgroundColor == "lightgray",
 			windowWidth: screen.width,
 			windowHeight: screen.height,
 			netType: navigator.connection.type,

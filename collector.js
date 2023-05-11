@@ -1,4 +1,3 @@
-document.getElementById("js-enabled").innerText = "true";
 const staticData = {
 	userAgent: navigator.userAgent,
 	userLanguage: navigator.language,
@@ -20,6 +19,8 @@ var performanceData = {
 
 // Run on window load
 function load() {
+	document.getElementById("js-enabled").innerText = "true";
+
 	if ((document.getElementById("flag").offsetWidth == 1 && document.getElementById("flag").readyState == "complete") ||
 		(document.getElementById("flag").offsetWidth == 1 && document.getElementById("flag").readyState == undefined)) {
 		staticData["imgEnabled"] = true;

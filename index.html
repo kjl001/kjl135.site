@@ -134,15 +134,10 @@
 		};
 
 		const performanceData = {
-			loadStart: window.PerformanceNavigationTiming.toJSON()["loadEventStart"],
-			loadEnd: window.PerformanceNavigationTiming.toJSON()["loadEventEnd"],
-			totalLoad: window.PerformanceNavigationTiming.toJSON()["loadEventEnd"] - window.PerformanceNavigationTiming.toJSON()["loadEventStart"]
+			loadStart: 0,
+			loadEnd: 0,
+			totalLoad: 0
 		};
-
-		const data = {
-			static: staticData,
-			performance: performanceData,
-		}
 
 		// Run on window load
 		function load() {
@@ -151,13 +146,26 @@
 				staticData["imgEnabled"] = true;
 			}
 
-			post();
+			const observer = new PerformanceObserver((list) => {
+				list.getEntries().forEach((entry) => {
+					console.log(entry.toJSON());
+				});
+			});
+
+			observer.observe({ entryTypes: ["navigation"] });
+
+			const totalData = {
+				static: staticData,
+				performance: performanceData,
+			};
+
+			post(totalData);
 		}
 
 
 		const staticURL = "https://kjl135.site/json/posts";
 
-		async function post() {
+		async function post(data) {
 			const res = await fetch(staticURL, {
 				method: "POST",
 				headers: {

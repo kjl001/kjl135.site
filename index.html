@@ -147,9 +147,10 @@
 				staticData["imgEnabled"] = true;
 			}
 
-			var performance = {};
 			const observer = new PerformanceObserver((list) => {
 				list.getEntries().forEach((entry) => {
+					if (entry.toJSON() == {}) break;
+
 					performanceData["timing"] = entry.toJSON();
 					performanceData["loadStart"] = performanceData["timing"].loadEventStart;
 					performanceData["loadEnd"] = performanceData["timing"].loadEventEnd;

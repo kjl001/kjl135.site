@@ -53,6 +53,7 @@ function getCookie(name) {
 const url = "https://kjl135.site/json/posts";
 
 async function post(data) {
+	var failedPost = false;
 	const res = await fetch(url, {
 		method: "POST",
 		headers: {
@@ -63,17 +64,25 @@ async function post(data) {
 		console.log(response);
 	}).catch(error => {
 		console.log(error);
-		const update = await fetch(url, {
-			method: "PUT",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify(data)
-		}).then(response => {
-			console.log(response)
-		}).catch(error => {
-			console.log(error);
-		});
+		failedPost = true;
+	});
+
+	if (failedPost) {
+		put(data);
+	}
+}
+
+async function put(data) {
+	const update = await fetch(url, {
+		method: "PUT",
+		headers: {
+			"Content-Type": "application/json"
+		},
+		body: JSON.stringify(data)
+	}).then(response => {
+		console.log(response)
+	}).catch(error => {
+		console.log(error);
 	});
 }
 

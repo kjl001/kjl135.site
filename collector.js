@@ -37,7 +37,7 @@ function load() {
 	const totalData = {
 		static: staticData,
 		performance: performanceData,
-		id = getCookie("CGISESSID")
+		id: getCookie("CGISESSID")
 	};
 
 	post(totalData);

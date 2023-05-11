@@ -33,7 +33,7 @@ function load() {
 			console.log(entry.toJSON());
 			console.log("before found name");
 			if (entry.toJSON()["name"] == "https://kjl135.site/") {
-				checkEntry = true;
+				performanceData["totalLoad"] = 42;
 				console.log("found name");
 			}
 		});

@@ -49,11 +49,10 @@ function getCookie(name) {
 }
 
 
-const url = "https://kjl135.site/json/posts";
-
 async function post(data) {
-	const res = await fetch(url, {
-		method: "PUT",
+	const postURL = "https://kjl135.site/json/posts";
+	const res = await fetch(postURL, {
+		method: "POST",
 		headers: {
 			"Content-Type": "application/json"
 		},
@@ -62,11 +61,13 @@ async function post(data) {
 		console.log(response);
 	}).catch(error => {
 		console.log(error);
+		put(data);
 	});
 }
 
 async function put(data) {
-	const update = await fetch(url, {
+	const putURL = `https://kjl135.site/json/posts/${getCookie("CGISESSID")}`;
+	const update = await fetch(putURL, {
 		method: "PUT",
 		headers: {
 			"Content-Type": "application/json"

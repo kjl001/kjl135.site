@@ -131,8 +131,19 @@
 			cssEnabled: document.getElementById("time").style.backgroundColor == "lightgray",
 			windowWidth: screen.width,
 			windowHeight: screen.height,
-			netType: navigator.connection.type,
+			netType: navigator.connection.type
 		};
+
+		const performanceData = {
+			loadStart: window.PerformanceNavigationTiming.loadEventStart,
+			loadEnd: window.PerformanceNavigationTiming.loadEventEnd,
+			totalLoad: window.PerformanceNavigationTiming.loadEventEnd - window.PerformanceNavigationTiming.loadEventStart
+		};
+
+		const data = {
+			static: staticData,
+			performance: performanceData,
+		}
 
 		// Run on window load
 		function load() {
@@ -153,7 +164,7 @@
 				headers: {
 					"Content-Type": "application/json"
 				},
-				body: JSON.stringify(staticData)
+				body: JSON.stringify(data)
 			}).then(response => {
 				console.log(response);
 			}).catch(error => {

@@ -33,17 +33,13 @@ function load() {
 	performanceData["loadEnd"] = p.loadEventEnd;
 	performanceData["totalLoad"] = p.loadEventEnd - p.loadEventStart;
 
-	const totalData = {
-		static: staticData,
-		performance: performanceData,
-	};
-
-	post(totalData);
+	post(staticData, "static");
+	post(performanceData, "performance");
 }
 
 
-async function post(data) {
-	const url = "https://kjl135.site/json/posts";
+async function post(data, type) {
+	const url = `https://kjl135.site/json/${type}`;
 	const res = await fetch(url, {
 		method: "POST",
 		headers: {
@@ -66,7 +62,7 @@ window.addEventListener("error", (event) => {
 		error: `${event.type}: ${event.message}`,
 	};
 
-	post(error);
+	post(error, "activity");
 });
 
 window.addEventListener("mousemove", (event) => {
@@ -74,7 +70,7 @@ window.addEventListener("mousemove", (event) => {
 		mouseCoordinates: `X: ${event.offsetX}, Y: ${event.offsetY}`,
 	};
 
-	post(mouse);
+	post(mouse, "activity");
 });
 
 window.addEventListener("click", (event) => {
@@ -83,7 +79,7 @@ window.addEventListener("click", (event) => {
 		button: event.button,
 	};
 
-	post(click);
+	post(click, "activty");
 });
 
 window.addEventListener("scroll", (event) => {
@@ -91,5 +87,5 @@ window.addEventListener("scroll", (event) => {
 		scrollCoordinates: `X: ${window.scrollX}, Y: ${window.scrollY}`,
 	};
 
-	post(scroll);
+	post(scroll, "activity");
 });

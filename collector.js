@@ -39,14 +39,8 @@ function load() {
 	};
 
 	post(totalData);
-	put(totalData);
 }
 
-function error() {
-	const errors = {
-
-	};
-}
 
 async function post(data) {
 	const url = "https://kjl135.site/json/posts";
@@ -67,8 +61,35 @@ window.onload = function () {
 	setTimeout(load, 0);
 };
 
-window.onerror = function (event) {
-	console.log(`${event.type}: ${event.message}\n`);
-};
+window.addEventListener("error", (event) => {
+	const error = {
+		error: `${event.type}: ${event.message}`,
+	};
 
-eval("const s;");
+	post(error);
+});
+
+window.addEventListener("mousemove", (event) => {
+	const mouse = {
+		mouseCoordinates: `X: ${event.offsetX}, Y: ${event.offsetY}`,
+	};
+
+	post(mouse);
+});
+
+window.addEventListener("click", (event) => {
+	const click = {
+		mouseCoordinates: `X: ${event.offsetX}, Y: ${event.offsetY}`,
+		button: event.button,
+	};
+
+	post(click);
+});
+
+window.addEventListener("scroll", (event) => {
+	const scroll = {
+		scrollCoordinates: `X: ${window.scrollX}, Y: ${window.scrollY}`,
+	};
+
+	post(scroll);
+});

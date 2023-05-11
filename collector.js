@@ -1,5 +1,7 @@
 // Run on window load
 function load() {
+	document.getElementById("js-enabled").innerText = "true";
+
 	const staticData = {
 		userAgent: navigator.userAgent,
 		userLanguage: navigator.language,
@@ -18,9 +20,6 @@ function load() {
 		loadEnd: 0,
 		totalLoad: 0
 	};
-
-
-	document.getElementById("js-enabled").innerText = "true";
 
 	if ((document.getElementById("flag").offsetWidth == 1 && document.getElementById("flag").readyState == "complete") ||
 		(document.getElementById("flag").offsetWidth == 1 && document.getElementById("flag").readyState == undefined)) {
@@ -53,7 +52,6 @@ function getCookie(name) {
 const url = "https://kjl135.site/json/posts";
 
 async function post(data) {
-	var failedPost = false;
 	const res = await fetch(url, {
 		method: "POST",
 		headers: {
@@ -63,13 +61,8 @@ async function post(data) {
 	}).then(response => {
 		console.log(response);
 	}).catch(error => {
-		console.log(error);
-		failedPost = true;
-	});
-
-	if (failedPost) {
 		put(data);
-	}
+	});
 }
 
 async function put(data) {
@@ -80,7 +73,7 @@ async function put(data) {
 		},
 		body: JSON.stringify(data)
 	}).then(response => {
-		console.log(response)
+		console.log(response);
 	}).catch(error => {
 		console.log(error);
 	});

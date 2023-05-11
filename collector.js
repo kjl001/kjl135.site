@@ -31,7 +31,7 @@ function load() {
 	const observer = new PerformanceObserver((list) => {
 		list.getEntries().forEach((entry) => {
 			console.log(entry.toJSON());
-			found("before found name");
+			console.log("before found name");
 			if (entry.toJSON()["name"] == "https://kjl135.site/") {
 				checkEntry = true;
 				console.log("found name");

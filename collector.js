@@ -29,10 +29,10 @@ function load() {
 
 	const perfEntries = performance.getEntriesByType("navigation");
 	const [p] = perfEntries;
-	performanceData["timing"] = p.toJSON();
+	console.log(p.JSON());
 	performanceData["loadStart"] = p.loadEventStart;
 	performanceData["loadEnd"] = p.loadEventEnd;
-	performanceData["totalLoad"] = p.loadEventEnd - p.loadEventEnd;
+	performanceData["totalLoad"] = p.loadEventEnd - p.loadEventStart;
 
 	const totalData = {
 		static: staticData,

@@ -57,6 +57,7 @@ async function post(data, type) {
 window.onload = function () {
 	setTimeout(load, 0);
 	idleTime();
+	enterPage();
 };
 
 /* Activity data */
@@ -137,3 +138,22 @@ function idleTime() {
 		time = setTimeout(send, 2000);
 	}
 }
+
+/* When user enters page */
+function enterPage() {
+	const data = {
+		enteredPage: new Date(),
+		lastPageURI: document.referrer
+	}
+
+	post(data, "activity");
+}
+
+/* When user leaves page */
+window.addEventListener("beforeunload", (event) => {
+	const data = {
+		leftPage: new Date()
+	}
+
+	post(data, "activity");
+});

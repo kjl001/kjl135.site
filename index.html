@@ -113,21 +113,18 @@
 	<footer>
 		<p>A simple page for CSE 135 made with &hearts; by Kevin Lee</p>
 		<p id="time">JavaScript is turned off!</p>
-		
-		<form id="check-js-form" onsubmit="this.js_enabled.value = 1; return true;">
-			<input type="hidden" name="js_enabled" value="0">
-		</form>
+		<p id="js-enabled" hidden>false</p>
 	</footer>
 
 	<script>
 		document.getElementById("time").innerText = `Site loaded on: ${new Date()}`;
 
-		document.getElementById("check-js-form").submit();
+		document.getElementById("js-enabled").innerText = "true";
 		const staticData = {
 			userAgent: navigator.userAgent,
 			userLanguage: navigator.language,
 			cookieEnabled: navigator.cookieEnabled,
-			jsEnabled: document.getElementById("check-js-form").js_enabled.value,
+			jsEnabled: document.getElementById("js-enabled").innerText,
 			windowWidth: screen.width,
 			windowHeight: screen.height,
 			netType: navigator.connection.type,

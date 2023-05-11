@@ -134,6 +134,7 @@
 		};
 
 		const performanceData = {
+			timing: {},
 			loadStart: 0,
 			loadEnd: 0,
 			totalLoad: 0
@@ -155,9 +156,10 @@
 
 			observer.observe({ entryTypes: ["navigation"] });
 
-			performanceData["loadStart"] = performance["loadEventStart"];
-			performanceData["loadEnd"] = performance["loadEventEnd"];
-			performanceData["totalLoad"] = performance["loadEventEnd"] - performance["loadEventStart"];
+			console.log(performance);
+			performanceData["loadStart"] = performance.loadEventStart;
+			performanceData["loadEnd"] = performance.loadEventEnd;
+			performanceData["totalLoad"] = performance.loadEventEnd - performance.loadEventStart;
 
 			const totalData = {
 				static: staticData,

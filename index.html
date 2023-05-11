@@ -122,7 +122,6 @@
 
 		document.getElementById("js-enabled").innerText = "true";
 		const staticData = {
-			dataType: "static",
 			userAgent: navigator.userAgent,
 			userLanguage: navigator.language,
 			cookieEnabled: navigator.cookieEnabled,
@@ -135,9 +134,9 @@
 		};
 
 		const performanceData = {
-			loadStart: window.PerformanceNavigationTiming.loadEventStart,
-			loadEnd: window.PerformanceNavigationTiming.loadEventEnd,
-			totalLoad: window.PerformanceNavigationTiming.loadEventEnd - window.PerformanceNavigationTiming.loadEventStart
+			loadStart: window.PerformanceNavigationTiming.toJSON()["loadEventStart"],
+			loadEnd: window.PerformanceNavigationTiming.toJSON()["loadEventEnd"],
+			totalLoad: window.PerformanceNavigationTiming.toJSON()["loadEventEnd"] - window.PerformanceNavigationTiming.toJSON()["loadEventStart"]
 		};
 
 		const data = {

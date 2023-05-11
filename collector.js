@@ -60,5 +60,5 @@ async function post(data) {
 }
 
 window.onload = function () {
-	setTimeout(load(), 0);
+	setTimeout(load, 0);
 };

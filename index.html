@@ -150,16 +150,14 @@
 			var performance = {};
 			const observer = new PerformanceObserver((list) => {
 				list.getEntries().forEach((entry) => {
-					performance = entry.toJSON();
+					performanceData["timing"] = entry.toJSON();
+					performanceData["loadStart"] = performanceData["timing"].loadEventStart;
+					performanceData["loadEnd"] = performanceData["timing"].loadEventEnd;
+					performanceData["totalLoad"] = performanceData["timing"].loadEventEnd - performanceData["timing"].loadEventStart;
 				});
 			});
 
 			observer.observe({ entryTypes: ["navigation"] });
-
-			console.log(performance);
-			performanceData["loadStart"] = performance.loadEventStart;
-			performanceData["loadEnd"] = performance.loadEventEnd;
-			performanceData["totalLoad"] = performance.loadEventEnd - performance.loadEventStart;
 
 			const totalData = {
 				static: staticData,

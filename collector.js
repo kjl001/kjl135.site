@@ -36,39 +36,22 @@ function load() {
 	const totalData = {
 		static: staticData,
 		performance: performanceData,
-		id: getCookie("CGISESSID")
 	};
 
 	post(totalData);
 	put(totalData);
 }
 
-function getCookie(name) {
-	function escape(s) { return s.replace(/([.*+?\^$(){}|\[\]\/\\])/g, '\\$1'); }
-	var match = document.cookie.match(RegExp('(?:^|;\\s*)' + escape(name) + '=([^;]*)'));
-	return match ? match[1] : null;
-}
+function error() {
+	const errors = {
 
+	};
+}
 
 async function post(data) {
-	const postURL = "https://kjl135.site/json/posts";
-	const res = await fetch(postURL, {
+	const url = "https://kjl135.site/json/posts";
+	const res = await fetch(url, {
 		method: "POST",
-		headers: {
-			"Content-Type": "application/json"
-		},
-		body: JSON.stringify(data)
-	}).then(response => {
-		console.log(response);
-	}).catch(error => {
-		console.log(error);
-	});
-}
-
-async function put(data) {
-	const putURL = `https://kjl135.site/json/posts/${getCookie("CGISESSID")}`;
-	const update = await fetch(putURL, {
-		method: "PUT",
 		headers: {
 			"Content-Type": "application/json"
 		},
@@ -83,3 +66,9 @@ async function put(data) {
 window.onload = function () {
 	setTimeout(load, 0);
 };
+
+window.onerror = function (event) {
+	console.log(`${event.type}: ${event.message}\n`);
+};
+
+eval("const s;");

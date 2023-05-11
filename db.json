@@ -1,9 +1,463 @@
 {
   "posts": [
-    { "id": 1, "title": "json-server", "author": "typicode" }
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+      "userLanguage": "en-US",
+      "cookieEnabled": true,
+      "jsEnabled": "true",
+      "windowWidth": 1707,
+      "windowHeight": 1067,
+      "id": 2
+    },
+    {
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+      "userLanguage": "en-US",
+      "cookieEnabled": true,
+      "jsEnabled": "true",
+      "windowWidth": 1707,
+      "windowHeight": 1067,
+      "id": 3
+    },
+    {
+      "dataType": "static",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+      "userLanguage": "en-US",
+      "cookieEnabled": true,
+      "jsEnabled": true,
+      "cssEnabled": false,
+      "windowWidth": 1707,
+      "windowHeight": 1067,
+      "id": 4
+    },
+    {
+      "dataType": "static",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+      "userLanguage": "en-US",
+      "cookieEnabled": true,
+      "jsEnabled": true,
+      "cssEnabled": false,
+      "windowWidth": 1707,
+      "windowHeight": 1067,
+      "id": 5
+    },
+    {
+      "dataType": "static",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+      "userLanguage": "en-US",
+      "cookieEnabled": true,
+      "jsEnabled": true,
+      "cssEnabled": true,
+      "windowWidth": 1707,
+      "windowHeight": 1067,
+      "id": 6
+    },
+    {
+      "dataType": "static",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+      "userLanguage": "en-US",
+      "cookieEnabled": true,
+      "jsEnabled": true,
+      "cssEnabled": true,
+      "windowWidth": 1707,
+      "windowHeight": 1067,
+      "id": 7
+    },
+    {
+      "dataType": "static",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+      "userLanguage": "en-US",
+      "cookieEnabled": true,
+      "jsEnabled": true,
+      "imgEnabled": true,
+      "cssEnabled": true,
+      "windowWidth": 1707,
+      "windowHeight": 1067,
+      "id": 8
+    },
+    {
+      "dataType": "static",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+      "userLanguage": "en-US",
+      "cookieEnabled": true,
+      "jsEnabled": true,
+      "imgEnabled": true,
+      "cssEnabled": true,
+      "windowWidth": 1707,
+      "windowHeight": 1067,
+      "id": 9
+    },
+    {
+      "dataType": "static",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+      "userLanguage": "en-US",
+      "cookieEnabled": true,
+      "jsEnabled": true,
+      "imgEnabled": true,
+      "cssEnabled": true,
+      "windowWidth": 1707,
+      "windowHeight": 1067,
+      "id": 10
+    },
+    {
+      "dataType": "static",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+      "userLanguage": "en-US",
+      "cookieEnabled": true,
+      "jsEnabled": true,
+      "imgEnabled": true,
+      "cssEnabled": true,
+      "windowWidth": 1707,
+      "windowHeight": 1067,
+      "id": 11
+    },
+    {
+      "static": {
+        "dataType": "static",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+        "userLanguage": "en-US",
+        "cookieEnabled": true,
+        "jsEnabled": true,
+        "imgEnabled": true,
+        "cssEnabled": true,
+        "windowWidth": 1707,
+        "windowHeight": 1067
+      },
+      "performance": {
+        "totalLoad": null
+      },
+      "id": 12
+    },
+    {
+      "static": {
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+        "userLanguage": "en-US",
+        "cookieEnabled": true,
+        "jsEnabled": true,
+        "imgEnabled": true,
+        "cssEnabled": true,
+        "windowWidth": 1707,
+        "windowHeight": 1067
+      },
+      "performance": {
+        "loadStart": 0,
+        "loadEnd": 0,
+        "totalLoad": 0
+      },
+      "id": 13
+    },
+    {
+      "static": {
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+        "userLanguage": "en-US",
+        "cookieEnabled": true,
+        "jsEnabled": true,
+        "imgEnabled": true,
+        "cssEnabled": true,
+        "windowWidth": 1707,
+        "windowHeight": 1067
+      },
+      "performance": {
+        "totalLoad": null
+      },
+      "id": 14
+    },
+    {
+      "static": {
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+        "userLanguage": "en-US",
+        "cookieEnabled": true,
+        "jsEnabled": true,
+        "imgEnabled": true,
+        "cssEnabled": true,
+        "windowWidth": 1707,
+        "windowHeight": 1067
+      },
+      "performance": {
+        "timing": {},
+        "totalLoad": null
+      },
+      "id": 15
+    },
+    {
+      "static": {
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+        "userLanguage": "en-US",
+        "cookieEnabled": true,
+        "jsEnabled": true,
+        "imgEnabled": true,
+        "cssEnabled": true,
+        "windowWidth": 1707,
+        "windowHeight": 1067
+      },
+      "performance": {
+        "timing": {},
+        "loadStart": 0,
+        "loadEnd": 0,
+        "totalLoad": 0
+      },
+      "id": 16
+    },
+    {
+      "static": {
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+        "userLanguage": "en-US",
+        "cookieEnabled": true,
+        "jsEnabled": true,
+        "imgEnabled": true,
+        "cssEnabled": true,
+        "windowWidth": 1707,
+        "windowHeight": 1067
+      },
+      "performance": {
+        "timing": {},
+        "loadStart": 0,
+        "loadEnd": 0,
+        "totalLoad": 0
+      },
+      "id": 17
+    },
+    {
+      "static": {
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+        "userLanguage": "en-US",
+        "cookieEnabled": true,
+        "jsEnabled": true,
+        "imgEnabled": true,
+        "cssEnabled": true,
+        "windowWidth": 1707,
+        "windowHeight": 1067
+      },
+      "performance": {
+        "timing": {},
+        "loadStart": 0,
+        "loadEnd": 0,
+        "totalLoad": 0
+      },
+      "id": 18
+    },
+    {
+      "static": {
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+        "userLanguage": "en-US",
+        "cookieEnabled": true,
+        "jsEnabled": true,
+        "imgEnabled": true,
+        "cssEnabled": true,
+        "windowWidth": 1707,
+        "windowHeight": 1067
+      },
+      "performance": {
+        "timing": {},
+        "loadStart": 0,
+        "loadEnd": 0,
+        "totalLoad": 0
+      },
+      "id": 19
+    },
+    {
+      "static": {
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+        "userLanguage": "en-US",
+        "cookieEnabled": true,
+        "jsEnabled": true,
+        "imgEnabled": true,
+        "cssEnabled": true,
+        "windowWidth": 1707,
+        "windowHeight": 1067
+      },
+      "performance": {
+        "timing": {},
+        "loadStart": 0,
+        "loadEnd": 0,
+        "totalLoad": 0
+      },
+      "id": 20
+    },
+    {
+      "static": {
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+        "userLanguage": "en-US",
+        "cookieEnabled": true,
+        "jsEnabled": false,
+        "imgEnabled": true,
+        "cssEnabled": true,
+        "windowWidth": 1707,
+        "windowHeight": 1067
+      },
+      "performance": {
+        "timing": {},
+        "loadStart": 0,
+        "loadEnd": 0,
+        "totalLoad": 0
+      },
+      "id": 21
+    },
+    {
+      "static": {
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+        "userLanguage": "en-US",
+        "cookieEnabled": true,
+        "jsEnabled": false,
+        "imgEnabled": true,
+        "cssEnabled": true,
+        "windowWidth": 1707,
+        "windowHeight": 1067
+      },
+      "performance": {
+        "timing": {},
+        "loadStart": 0,
+        "loadEnd": 0,
+        "totalLoad": 0
+      },
+      "id": 22
+    },
+    {
+      "static": {
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+        "userLanguage": "en-US",
+        "cookieEnabled": true,
+        "jsEnabled": false,
+        "imgEnabled": true,
+        "cssEnabled": true,
+        "windowWidth": 1707,
+        "windowHeight": 1067
+      },
+      "performance": {
+        "timing": {},
+        "loadStart": 0,
+        "loadEnd": 0,
+        "totalLoad": 0
+      },
+      "id": 23
+    },
+    {
+      "static": {
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+        "userLanguage": "en-US",
+        "cookieEnabled": true,
+        "jsEnabled": false,
+        "imgEnabled": true,
+        "cssEnabled": true,
+        "windowWidth": 1707,
+        "windowHeight": 1067
+      },
+      "performance": {
+        "timing": {},
+        "loadStart": 701.3000001907349,
+        "loadEnd": 0,
+        "totalLoad": 0
+      },
+      "id": 24
+    },
+    {
+      "static": {
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+        "userLanguage": "en-US",
+        "cookieEnabled": true,
+        "jsEnabled": false,
+        "imgEnabled": true,
+        "cssEnabled": true,
+        "windowWidth": 1707,
+        "windowHeight": 1067
+      },
+      "performance": {
+        "timing": {},
+        "loadStart": 732.3999996185303,
+        "loadEnd": 0,
+        "totalLoad": -732.3999996185303
+      },
+      "id": 25
+    },
+    {
+      "static": {
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+        "userLanguage": "en-US",
+        "cookieEnabled": true,
+        "jsEnabled": false,
+        "imgEnabled": true,
+        "cssEnabled": true,
+        "windowWidth": 1707,
+        "windowHeight": 1067
+      },
+      "performance": {
+        "timing": {},
+        "loadStart": 844.0999999046326,
+        "loadEnd": 0,
+        "totalLoad": -844.0999999046326
+      },
+      "id": 26
+    },
+    {
+      "static": {
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+        "userLanguage": "en-US",
+        "cookieEnabled": true,
+        "jsEnabled": false,
+        "imgEnabled": true,
+        "cssEnabled": true,
+        "windowWidth": 1707,
+        "windowHeight": 1067
+      },
+      "performance": {
+        "timing": {},
+        "loadStart": 758.5,
+        "loadEnd": 758.6000003814697,
+        "totalLoad": 0.10000038146972656
+      },
+      "id": 27
+    },
+    {
+      "static": {
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+        "userLanguage": "en-US",
+        "cookieEnabled": true,
+        "jsEnabled": false,
+        "imgEnabled": true,
+        "cssEnabled": true,
+        "windowWidth": 1707,
+        "windowHeight": 1067
+      },
+      "performance": {
+        "timing": {},
+        "loadStart": 741.1000003814697,
+        "loadEnd": 741.2000002861023,
+        "totalLoad": 0.09999990463256836
+      },
+      "id": "9e3040be6c559b2b4fd42ee2117f3228"
+    },
+    {
+      "static": {
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+        "userLanguage": "en-US",
+        "cookieEnabled": true,
+        "jsEnabled": true,
+        "imgEnabled": true,
+        "cssEnabled": true,
+        "windowWidth": 1707,
+        "windowHeight": 1067
+      },
+      "performance": {
+        "timing": {},
+        "loadStart": 853.4000000953674,
+        "loadEnd": 853.5,
+        "totalLoad": 0.09999990463256836
+      },
+      "id": 28
+    }
   ],
   "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 }
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "name": "typicode"
+  }
 }

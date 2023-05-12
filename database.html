@@ -12,8 +12,8 @@
 </head>
 
 <body>
-	<zing-grid id="table" caption="Static Data"
-			   data="">
+	<zing-grid caption="Static Data">
+		<zg-data src="https://kjl135.site/mysql/static"></zg-data>
 		<zg-colgroup>
 			<zg-column index="id" frozen="left"></zg-column>
 			<zg-column index="userAgent"></zg-column>
@@ -26,28 +26,5 @@
 			<zg-column index="windowHeight"></zg-column>
 		</zg-colgroup>
 	</zing-grid>
-
-	<script>
-		async function get() {
-			const url = "https://kjl135.site/mysql/static"
-			const response = await fetch(url, {
-				method: "GET",
-				headers: {
-					"Content-Type": "application/json"
-				}
-			});
-
-			if (response.ok) {
-				let data = await response.json();
-				console.log(response);
-				console.log(data);
-				document.getElementById("table").data = data;
-			} else {
-				console.log("GET Error");
-			}
-		}
-
-		window.onload = get;
-	</script>
 </body>
 </html>

@@ -4,7 +4,7 @@ import express from 'express';
 const pool = mysql.createPool({
 	host: '127.0.0.1',
 	user: 'kjl001',
-	password: '',
+	password: 'Chk7!3Slct',
 	database: 'kjl135'
 }).promise();
 

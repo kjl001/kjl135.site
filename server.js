@@ -1,4 +1,4 @@
-const mysql = require('mysql');
+/*const mysql = require('mysql');
 const express = require('express');
 
 const db = mysql.createConnection({
@@ -40,4 +40,45 @@ app.get('/static', (req, res) => {
 
 app.listen(3000, () => {
 	console.log('Server started on port 3000');
+});
+*/
+
+import mysql from 'mysql2';
+import express from 'express';
+
+mysql.createPool({
+	host: 'localhost',
+	user: 'kjl001',
+	password: '',
+	database: 'kjl135'
+}).promise();
+
+async function getAllStatic() {
+	const [rows] = await pool.query("SELECT * FROM static");
+	return rows;
+}
+
+async function getStatic(id) {
+	const [rows] = await pool.quer(`SELECT * FROM static WHERE id = ?`, [id]);
+	return rows[0];
+}
+
+async function createStatic(data) {
+	const [result] = await pool.query(`INSERT INTO static VALUES (${data['id']}, ${data['userAgent']}, ${data['userLanguage']}, ${data['cookieEnabled']}, ${data['jsEnabled']}, ${data['imgEnabled']}, ${data['cssEnabled']}, ${data['windowWidth']}, ${data['windowHeight']})`);
+	return data;
+}
+
+const app = express();
+
+app.get('/static', (req, res) => {
+	res.send('This should be the static data');
+});
+
+app.use((err, req, res, next) => {
+	console.error(err.stack);
+	res.status(500).send("Something broke!");
+});
+
+app.listen(3000, () => {
+	console.log('Server is running on port 3000!');
 });

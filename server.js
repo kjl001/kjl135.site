@@ -15,11 +15,10 @@ db.connect((err) => {
 });
 
 const app = express();
-app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 app.post('/static', (req, res) => {
-	const data = JSON.parse(req.body);
+	const data = req.body;
 	let sql = `INSERT INTO static VALUES (${data['id']}, ${data['userAgent']}, ${data['userLanguage']}, ${data['cookieEnabled']}, ${data['jsEnabled']}, ${data['imgEnabled']}, ${data['cssEnabled']}, ${data['windowWidth']}, ${data['windowHeight']});`;
 	db.query(sql, (err) => {
 		if (err) {

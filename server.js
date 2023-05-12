@@ -21,7 +21,9 @@ app.use(bodyParser.json());
 app.post('/static', (req, res) => {
 	let sql = `INSERT INTO static (id, userAgent, userLanguage, cookieEnabled, jsEnabled, imgEnabled, cssEnabled, windowWidth, windowHeight) VALUES (${req.body['id']}, ${req.body['userAgent']}, ${req.body['userLanguage']}, ${req.body['cookieEnabled']}, ${req.body['jsEnabled']}, ${req.body['imgEnabled']}, ${req.body['cssEnabled']}, ${req.body['windowWidth']}, ${req.body['windowHeight']})`;
 	db.query(sql, err => {
-		if (err) throw err
+		if (err) {
+			throw err;
+		}
 		res.send('Static Data Inserted');
 	});
 });

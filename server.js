@@ -46,7 +46,7 @@ app.listen(3000, () => {
 import mysql from 'mysql2';
 import express from 'express';
 
-mysql.createPool({
+const pool = mysql.createPool({
 	host: 'localhost',
 	user: 'kjl001',
 	password: '',
@@ -59,7 +59,7 @@ async function getAllStatic() {
 }
 
 async function getStatic(id) {
-	const [rows] = await pool.quer(`SELECT * FROM static WHERE id = ?`, [id]);
+	const [rows] = await pool.query(`SELECT * FROM static WHERE id = ?`, [id]);
 	return rows[0];
 }
 

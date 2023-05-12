@@ -15,7 +15,7 @@ db.connect((err) => {
 });
 
 const app = express();
-app.use(express.urlencoded());
+app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 app.post('/static', (req, res) => {

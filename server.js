@@ -19,19 +19,26 @@ async function getStatic(id) {
 }
 
 async function createStatic(data) {
-	const [result] = await pool.query(`INSERT INTO static VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`, [data['id'], data['userAgent'], data['userLanguage'], data['cookieEnabled'], data['jsEnabled'], data['imgEnabled'], data['cssEnabled'], data['windowWidth'], data['windowHeight']]);
-	return data;
+	const result = await pool.query(`INSERT INTO static VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`, [data['id'], data['userAgent'], data['userLanguage'], data['cookieEnabled'], data['jsEnabled'], data['imgEnabled'], data['cssEnabled'], data['windowWidth'], data['windowHeight']]);
+	return result;
 }
 
 const app = express();
 app.use(express.json());
 
-app.get('/static', (req, res) => {
-	res.send('This should be the static data');
+app.get('/static', async (req, res) => {
+	const static = await getAllStatic();
+	res.send(static);
 });
 
-app.post('/static', (req, res) => {
-	const out = createStatic(req.body);
+app.get('/static/:id', async (req, res) => {
+	const id = req.params.id;
+	const static = await getStatic(id);
+	res.send(static);
+});
+
+app.post('/static', async (req, res) => {
+	const out = await createStatic(req.body);
 	res.status(201).send(out);
 });
 

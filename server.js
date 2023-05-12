@@ -76,7 +76,7 @@ app.get('/static', (req, res) => {
 });
 
 app.post('/static', (req, res) => {
-	const out = await createStatic(req.body);
+	const out = createStatic(req.body);
 	res.status(201).send(out);
 });
 

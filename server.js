@@ -69,9 +69,15 @@ async function createStatic(data) {
 }
 
 const app = express();
+app.use(express.json());
 
 app.get('/static', (req, res) => {
 	res.send('This should be the static data');
+});
+
+app.post('/static', (req, res) => {
+	const out = await createStatic(req.body);
+	res.status(201).send(out);
 });
 
 app.use((err, req, res, next) => {

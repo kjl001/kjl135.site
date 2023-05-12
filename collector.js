@@ -40,7 +40,7 @@ function load() {
 
 /* Post to URL */
 async function post(data, type) {
-	const url = `https://kjl135.site/json/${type}`;
+	const url = `https://kjl135.site/mysql/${type}`;
 	const res = await fetch(url, {
 		method: "POST",
 		headers: {

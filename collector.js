@@ -98,14 +98,6 @@ window.addEventListener("scroll", (event) => {
 });
 
 /* Keyboard activity */
-window.addEventListener("keydown", (event) => {
-	const data = {
-		keyPressed: event.code,
-	};
-
-	post(data, "activity");
-});
-
 window.addEventListener("keyup", (event) => {
 	const data = {
 		keyUp: event.code,

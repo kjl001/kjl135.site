@@ -16,7 +16,9 @@ db.connect((err) => {
 });
 
 const app = express();
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(bodyParser.raw());
 
 app.post('/static', (req, res) => {
 	let sql = `INSERT INTO static VALUES (${req.body['id']}, ${req.body['userAgent']}, ${req.body['userLanguage']}, ${req.body['cookieEnabled']}, ${req.body['jsEnabled']}, ${req.body['imgEnabled']}, ${req.body['cssEnabled']}, ${req.body['windowWidth']}, ${req.body['windowHeight']});`;

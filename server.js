@@ -25,7 +25,17 @@ app.post('/static', (req, res) => {
 			throw err;
 		}
 		res.send('Static Data Inserted');
-		console.log(req.body);
+	});
+});
+
+app.get('/static', (req, res) => {
+	let sql = 'SELECT * FROM static';
+	db.query(sql, (err, results) => {
+		if (err) {
+			throw err;
+		}
+		res.send('Retrieving Static Data');
+		console.log(results);
 	});
 });
 

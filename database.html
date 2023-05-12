@@ -19,17 +19,21 @@
 	<script>
 		async function get() {
 			const url = "https://kjl135.site/mysql/static"
-			const res = await fetch(url, {
+			const response = await fetch(url, {
 				method: "GET",
 				headers: {
 					"Content-Type": "application/json"
 				}
-			}).then(response => {
-				let data = response.json();
-				document.getElementById("table").data = data;
-			}).catch(error => {
-				console.log(error);
 			});
+
+			if (response.ok) {
+				let data = await response.json();
+				console.log(response);
+				console.log(data);
+				document.getElementById("table").data = data;
+			} else {
+				console.log("GET Error");
+			}
 		}
 
 		window.onload = get;

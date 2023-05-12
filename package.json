@@ -20,5 +20,8 @@
   "homepage": "https://github.com/kjl001/kjl135.site#readme",
   "devDependencies": {
     "json-server": "^0.17.3"
+  },
+  "dependencies": {
+    "mysql": "^2.18.1"
   }
 }

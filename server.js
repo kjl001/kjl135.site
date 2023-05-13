@@ -19,12 +19,12 @@ async function getStatic(id) {
 }
 
 async function createStatic(data) {
-	const result = await pool.query(`INSERT INTO static VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`, [data['id'], data['userAgent'], data['userLanguage'], data['cookieEnabled'], data['jsEnabled'], data['imgEnabled'], data['cssEnabled'], data['windowWidth'], data['windowHeight'], data['netType']]);
+	const result = await pool.query(`INSERT INTO static VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, [data['id'], data['userAgent'], data['userLanguage'], data['cookieEnabled'], data['jsEnabled'], data['imgEnabled'], data['cssEnabled'], data['windowWidth'], data['windowHeight'], data['netType']]);
 	return result;
 }
 
 async function updateStatic(data) {
-	const result = await pool.query(`UPDATE static SET userAgent = ?, userLanguage = ?, cookieEnabled = ?, jsEnabled = ?, imgEnabled = ?, cssEnabled = ?, windowWidth = ?, windowHeight = ? WHERE id = ?`, [data['userAgent'], data['userLanguage'], data['cookieEnabled'], data['jsEnabled'], data['imgEnabled'], data['cssEnabled'], data['windowWidth'], data['windowHeight'], data['netType'], data['id']]);
+	const result = await pool.query(`UPDATE static SET userAgent = ?, userLanguage = ?, cookieEnabled = ?, jsEnabled = ?, imgEnabled = ?, cssEnabled = ?, windowWidth = ?, windowHeight = ?, netType = ? WHERE id = ?`, [data['userAgent'], data['userLanguage'], data['cookieEnabled'], data['jsEnabled'], data['imgEnabled'], data['cssEnabled'], data['windowWidth'], data['windowHeight'], data['netType'], data['id']]);
 	return result;
 }
 

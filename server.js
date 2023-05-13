@@ -23,9 +23,15 @@ async function createStatic(data) {
 	return result;
 }
 
+async function updateStatic(data) {
+	const result = await pool.query(`UPDATE static SET userAgent = ?, userLanguage = ?, cookieEnabled = ?, jsEnabled = ?, imgEnabled = ?, cssEnabled = ?, windowWidth = ?, windowHeight = ? WHERE id = ?`, [data['userAgent'], data['userLanguage'], data['cookieEnabled'], data['jsEnabled'], data['imgEnabled'], data['cssEnabled'], data['windowWidth'], data['windowHeight'], data['id']]);
+	return result;
+}
+
 const app = express();
 app.use(express.json());
 
+/* GET Methods */
 app.get('/static', async (req, res) => {
 	const out = await getAllStatic();
 	res.send(out);
@@ -37,9 +43,17 @@ app.get('/static/:id', async (req, res) => {
 	res.send(out);
 });
 
+/* POST Methods */
 app.post('/static', async (req, res) => {
 	const out = await createStatic(req.body);
 	res.status(201).send(out);
+});
+
+/* PUT Methods */
+app.put('/static/:id', async (req, res) => {
+	const id = req.params.id;
+	const out = await updateStatic(id);
+	res.send(out);
 });
 
 app.use((err, req, res, next) => {

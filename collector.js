@@ -50,6 +50,22 @@ async function post(data, type) {
 	}).then(response => {
 		
 	}).catch(error => {
+		/* If POST fails, try PUT */
+		put(data, type);
+	});
+}
+
+async function put(data, type) {
+	const url = `https://kjl135.site/mysql/${type}`;
+	const res = await fetc(url, {
+		method: "PUT",
+		headers: {
+			"Content-Type": "application/json"
+		},
+		body: JSON.stringify(data)
+	}).then(response => {
+
+	}).catch(error => {
 		console.log(error);
 	});
 }

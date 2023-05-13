@@ -51,8 +51,7 @@ app.post('/static', async (req, res) => {
 
 /* PUT Methods */
 app.put('/static/:id', async (req, res) => {
-	const id = req.params.id;
-	const out = await updateStatic(id);
+	const out = await updateStatic(req.body);
 	res.send(out);
 });
 

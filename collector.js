@@ -1,8 +1,16 @@
+/* Get cookie helper function from John S from Stack Overflow*/
+function getCookie(name) {
+	function escape(s) { return s.replace(/([.*+?\^$(){}|\[\]\/\\])/g, '\\$1'); }
+	var match = document.cookie.match(RegExp('(?:^|;\\s*)' + escape(name) + '=([^;]*)'));
+	return match ? match[1] : null;
+}
+
 /* Run on window load */
 function load() {
 	document.getElementById("js-enabled").innerText = "true";
 
 	const staticData = {
+		id: getCookie("pvisitor"),
 		userAgent: navigator.userAgent,
 		userLanguage: navigator.language,
 		cookieEnabled: navigator.cookieEnabled,

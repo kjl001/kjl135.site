@@ -27,14 +27,14 @@ const app = express();
 app.use(express.json());
 
 app.get('/static', async (req, res) => {
-	const static = await getAllStatic();
-	res.send(static);
+	const out = await getAllStatic();
+	res.send(out);
 });
 
 app.get('/static/:id', async (req, res) => {
 	const id = req.params.id;
-	const static = await getStatic(id);
-	res.send(static);
+	const out = await getStatic(id);
+	res.send(out);
 });
 
 app.post('/static', async (req, res) => {

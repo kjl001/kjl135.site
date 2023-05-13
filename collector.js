@@ -78,7 +78,7 @@ async function post(data, type) {
 }
 
 async function put(data, type) {
-	const url = `https://kjl135.site/mysql/${type}`;
+	const url = `https://kjl135.site/mysql/${type}/${data['id']}`;
 	const res = await fetch(url, {
 		method: "PUT",
 		headers: {

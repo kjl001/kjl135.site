@@ -42,8 +42,23 @@ function load() {
 	performanceData["loadEnd"] = p.loadEventEnd;
 	performanceData["totalLoad"] = p.loadEventEnd - p.loadEventStart;
 
-	post(staticData, "static");
-	post(performanceData, "performance");
+	check(staticData, "static");
+	check(performanceData, "performance");
+}
+
+/* Check if data exists */
+async function check(data, type) {
+	const url = `https://kjl135.site/mysql/${type}/${data['id']}`;
+	const res = await fetch(url, {
+		method: "GET",
+		headers: {
+			"Content-Type": "application/json"
+		}
+	}).then(response => {
+		put(data, type);
+	}).catch(error => {
+		post(data, type);
+	})
 }
 
 /* Post to URL */
@@ -58,14 +73,13 @@ async function post(data, type) {
 	}).then(response => {
 		
 	}).catch(error => {
-		/* If POST fails, try PUT */
-		put(data, type);
+		console.log(error);
 	});
 }
 
 async function put(data, type) {
 	const url = `https://kjl135.site/mysql/${type}`;
-	const res = await fetc(url, {
+	const res = await fetch(url, {
 		method: "PUT",
 		headers: {
 			"Content-Type": "application/json"

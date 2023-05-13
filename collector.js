@@ -42,8 +42,8 @@ function load() {
 	performanceData["loadEnd"] = p.loadEventEnd;
 	performanceData["totalLoad"] = p.loadEventEnd - p.loadEventStart;
 
-	check(staticData, "static");
-	check(performanceData, "performance");
+	post(staticData, "static");
+	post(performanceData, "performance");
 }
 
 /* Check if data exists */

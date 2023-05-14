@@ -34,7 +34,7 @@ async function createStatic(data) {
 	return result;
 }
 async function createPerf(data) {
-	const result = await pool.query(`INSERT INTO performance VALUES (?, ?, ?, ?, ?)`, data['id'], data['timing'], data['loadStart'], data['loadEnd'], data['totalLoad']);
+	const result = await pool.query(`INSERT INTO performance VALUES (?, ?, ?, ?, ?)`, [data['id'], data['timing'], data['loadStart'], data['loadEnd'], data['totalLoad']]);
 	return result;
 }
 
@@ -44,7 +44,7 @@ async function updateStatic(data) {
 	return result;
 }
 async function updatePerf(data) {
-	const result = await pool.query(`UPDATE performance SET id = ?, timing = ?, loadStart = ?, loadEnd = ?, totalLoad = ?`, data['id'], data['timing'], data['loadStart'], data['loadEnd'], data['totalLoad']);
+	const result = await pool.query(`UPDATE performance SET id = ?, timing = ?, loadStart = ?, loadEnd = ?, totalLoad = ?`, [data['id'], data['timing'], data['loadStart'], data['loadEnd'], data['totalLoad']]);
 	return result;
 }
 
@@ -89,12 +89,12 @@ app.post('/performance', async (req, res) => {
 /* UPDATE Methods */
 app.post('/static/:id', async (req, res) => {
 	const out = await updateStatic(req.body);
-	res.status(201).send(out);
+	res.send(out);
 });
 
 app.post('/performance/:id', async (req, res) => {
 	const out = await updatePerf(req.body);
-	res.status(201).send(out);
+	res.send(out);
 });
 
 app.use((err, req, res, next) => {

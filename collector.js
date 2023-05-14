@@ -42,8 +42,8 @@ function load() {
 	performanceData["loadEnd"] = p.loadEventEnd;
 	performanceData["totalLoad"] = p.loadEventEnd - p.loadEventStart;
 
-	post(staticData, "static");
-	post(performanceData, "performance");
+	check(staticData, "static");
+	check(performanceData, "performance");
 }
 
 /* Check if data exists */
@@ -80,7 +80,7 @@ async function post(data, type) {
 async function put(data, type) {
 	const url = `https://kjl135.site/mysql/${type}/${data['id']}`;
 	const res = await fetch(url, {
-		method: "PUT",
+		method: "POST",
 		headers: {
 			"Content-Type": "application/json"
 		},

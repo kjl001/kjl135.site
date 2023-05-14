@@ -9,8 +9,9 @@ function getCookie(name) {
 function load() {
 	document.getElementById("js-enabled").innerText = "true";
 
+	const cookie = getCookie("pvisitor")
 	const staticData = {
-		id: getCookie("pvisitor"),
+		id: cookie,
 		userAgent: navigator.userAgent,
 		userLanguage: navigator.language,
 		cookieEnabled: navigator.cookieEnabled,
@@ -22,13 +23,6 @@ function load() {
 		netType: navigator.connection.type
 	};
 
-	const performanceData = {
-		timing: {},
-		loadStart: 0,
-		loadEnd: 0,
-		totalLoad: 0
-	};
-
 	if ((document.getElementById("flag").offsetWidth == 1 && document.getElementById("flag").readyState == "complete") ||
 		(document.getElementById("flag").offsetWidth == 1 && document.getElementById("flag").readyState == undefined)) {
 		staticData["imgEnabled"] = true;
@@ -37,10 +31,13 @@ function load() {
 	/* Record performance data */
 	const perfEntries = performance.getEntriesByType("navigation");
 	const [p] = perfEntries;
-	console.log(p.toJSON());
-	performanceData["loadStart"] = p.loadEventStart;
-	performanceData["loadEnd"] = p.loadEventEnd;
-	performanceData["totalLoad"] = p.loadEventEnd - p.loadEventStart;
+	const performanceData = {
+		id: cookie,
+		timing: p.toJSON(),
+		loadStart: p.loadEventStart,
+		loadEnd: p.loadEventEnd,
+		totalLoad: p.loadEventEnd - p.loadEventStart
+	};
 
 	check(staticData, "static");
 	check(performanceData, "performance");

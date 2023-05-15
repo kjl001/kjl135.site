@@ -39,6 +39,8 @@ function load() {
 	};
 
 	put(staticData, "static");
+
+	post(performanceData, "performance");
 	put(performanceData, "performance");
 }
 

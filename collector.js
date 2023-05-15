@@ -39,25 +39,8 @@ function load() {
 		totalLoad: p.loadEventEnd - p.loadEventStart
 	};
 
-	check(staticData, "static");
-	check(performanceData, "performance");
-}
-
-/* Check if data exists */
-async function check(data, type) {
-	const url = `https://kjl135.site/mysql/${type}/${data['id']}`;
-	const res = await fetch(url, {
-		method: "GET",
-		headers: {
-			"Content-Type": "application/json"
-		}
-	}).then(response => {
-		console.log("CHECK GET REQUEST");
-		console.log(response);
-	}).catch(error => {
-		console.log("CHECK ERROR GET");
-		console.log(error);
-	})
+	post(staticData, "static");
+	post(performanceData, "performance");
 }
 
 /* Post to URL */
@@ -72,7 +55,7 @@ async function post(data, type) {
 	}).then(response => {
 		
 	}).catch(error => {
-		console.log(error);
+		put(data, type);
 	});
 }
 

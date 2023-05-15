@@ -33,7 +33,7 @@ function load() {
 	const [p] = perfEntries;
 	const performanceData = {
 		id: cookie,
-		timing: p.toJSON(),
+		timing: JSON.stringify(p),
 		loadStart: p.loadEventStart,
 		loadEnd: p.loadEventEnd,
 		totalLoad: p.loadEventEnd - p.loadEventStart

@@ -52,9 +52,11 @@ async function check(data, type) {
 			"Content-Type": "application/json"
 		}
 	}).then(response => {
-		put(data, type);
+		console.log("CHECK GET REQUEST");
+		console.log(response);
 	}).catch(error => {
-		post(data, type);
+		console.log("CHECK ERROR GET");
+		console.log(error);
 	})
 }
 

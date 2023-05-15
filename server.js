@@ -34,7 +34,7 @@ async function createStatic(data) {
 	return result;
 }
 async function createPerf(data) {
-	const result = await pool.query(`INSERT INTO performance VALUES (?, ?, ?, ?)`, [data['id'], data['loadStart'], data['loadEnd'], data['totalLoad']]);
+	const result = await pool.query(`IF EXISTS (SELECT * FROM performance WHERE id = ?) BEGIN INSERT INTO performance VALUES (?, ?, ?, ?) END`, [data['id'], data['id'], data['loadStart'], data['loadEnd'], data['totalLoad']]);
 	return result;
 }
 

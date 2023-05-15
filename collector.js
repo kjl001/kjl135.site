@@ -39,8 +39,23 @@ function load() {
 		totalLoad: p.loadEventEnd - p.loadEventStart
 	};
 
-	post(staticData, "static");
-	post(performanceData, "performance");
+	put(staticData, "static");
+	put(performanceData, "performance");
+}
+
+/* Check if data exists */
+async function check(data, type) {
+	const url = `https://kjl135.site/mysql/${type}/${data['id']}`;
+	const res = await fetch(url, {
+		method: "GET",
+		headers: {
+			"Content-Type": "application/json"
+		}
+	}).then(response => {
+		put(data, type);
+	}).catch(error => {
+		post(data, type);
+	})
 }
 
 /* Post to URL */
@@ -55,7 +70,7 @@ async function post(data, type) {
 	}).then(response => {
 		
 	}).catch(error => {
-		put(data, type);
+		console.log(error);
 	});
 }
 

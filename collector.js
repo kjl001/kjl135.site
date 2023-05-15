@@ -9,7 +9,7 @@ function getCookie(name) {
 function load() {
 	document.getElementById("js-enabled").innerText = "true";
 
-	const cookie = getCookie("pvisitor")
+	const cookie = getCookie("pvisitor");
 	const staticData = {
 		id: cookie,
 		userAgent: navigator.userAgent,
@@ -39,11 +39,8 @@ function load() {
 		totalLoad: p.loadEventEnd - p.loadEventStart
 	};
 
-	post(staticData, "static");
-	post(performanceData, "performance");
-
-	put(staticData, "static");
-	put(performanceData, "performance");
+	check(staticData, "static");
+	check(performanceData, "performance");
 }
 
 /* Check if data exists */

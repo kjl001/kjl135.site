@@ -37,10 +37,9 @@ function load() {
 		loadEnd: p.loadEventEnd,
 		totalLoad: p.loadEventEnd - p.loadEventStart
 	};
-	console.log(`TIMING STRING: ${JSON.stringify(p)}`);
 
-	check(staticData, "static");
-	check(performanceData, "performance");
+	put(staticData, "static");
+	put(performanceData, "performance");
 }
 
 /* Check if data exists */

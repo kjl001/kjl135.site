@@ -39,6 +39,9 @@ function load() {
 		totalLoad: p.loadEventEnd - p.loadEventStart
 	};
 
+	post(staticData, "static");
+	post(performanceData, "performance");
+
 	put(staticData, "static");
 	put(performanceData, "performance");
 }

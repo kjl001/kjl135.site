@@ -34,7 +34,7 @@ async function createStatic(data) {
 	return result;
 }
 async function createPerf(data) {
-	const result = await pool.query(`INSERT INTO performance VALUES (?, ?, ?, ?, ?)`, [data['id'], data['timing'], data['loadStart'], data['loadEnd'], data['totalLoad']]);
+	const result = await pool.query(`INSERT INTO performance VALUES (?, ?, ?, ?)`, [data['id'], data['loadStart'], data['loadEnd'], data['totalLoad']]);
 	return result;
 }
 
@@ -44,7 +44,7 @@ async function updateStatic(data) {
 	return result;
 }
 async function updatePerf(data) {
-	const result = await pool.query(`UPDATE performance SET id = ?, timing = ?, loadStart = ?, loadEnd = ?, totalLoad = ?`, [data['id'], data['timing'], data['loadStart'], data['loadEnd'], data['totalLoad']]);
+	const result = await pool.query(`UPDATE performance SET loadStart = ?, loadEnd = ?, totalLoad = ? WHERE id = ?`, [data['loadStart'], data['loadEnd'], data['totalLoad'], data['id']]);
 	return result;
 }
 

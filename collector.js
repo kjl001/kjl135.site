@@ -33,11 +33,11 @@ function load() {
 	const [p] = perfEntries;
 	const performanceData = {
 		id: cookie,
-		timing: JSON.stringify(p),
 		loadStart: p.loadEventStart,
 		loadEnd: p.loadEventEnd,
 		totalLoad: p.loadEventEnd - p.loadEventStart
 	};
+	console.log(`TIMING STRING: ${JSON.stringify(p)}`);
 
 	check(staticData, "static");
 	check(performanceData, "performance");

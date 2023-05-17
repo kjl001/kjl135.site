@@ -17,6 +17,10 @@ async function getAllPerf() {
 	const [rows] = await pool.query("SELECT * FROM performance");
 	return rows;
 }
+async function getAllActivity() {
+	const [rows] = await pool.query("SELECT * from activity");
+	return rows;
+}
 
 /* Get Single from Table */
 async function getStatic(id) {
@@ -27,14 +31,22 @@ async function getPerf(id) {
 	const [rows] = await pool.query(`SELECT * FROM performance WHERE id = ?`, [id]);
 	return rows[0];
 }
+async function getActivity(id) {
+	const [rows] = await pool.query(`SELECT * FROM activity WHERE id = ?`, [id]);
+	return rows[0];
+}
 
 /* Create Row in Table */
 async function createStatic(data) {
-	const result = await pool.query(`INSERT INTO static VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, [data['id'], data['userAgent'], data['userLanguage'], data['cookieEnabled'], data['jsEnabled'], data['imgEnabled'], data['cssEnabled'], data['windowWidth'], data['windowHeight'], data['netType']]);
+	const result = await pool.query(`INSERT IGNORE INTO static VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, [data['id'], data['userAgent'], data['userLanguage'], data['cookieEnabled'], data['jsEnabled'], data['imgEnabled'], data['cssEnabled'], data['windowWidth'], data['windowHeight'], data['netType']]);
 	return result;
 }
 async function createPerf(data) {
 	const result = await pool.query(`INSERT IGNORE INTO performance VALUES (?, ?, ?, ?)`, [data['id'], data['loadStart'], data['loadEnd'], data['totalLoad']]);
+	return result;
+}
+async function createActivity(data) {
+	const result = await pool.query(`INSERT IGNORE INTO activity VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, [data['id'], data['error'], data['mouseCoords'], data['clickCoords'], data['clickButton'], data['scrollCoords'], data['keyUp'], data['idleEnd'], data['idleDuration'], data['enteredPage'], data['lastPageURI'], data['leftPage']]);
 	return result;
 }
 
@@ -45,6 +57,10 @@ async function updateStatic(data) {
 }
 async function updatePerf(data) {
 	const result = await pool.query(`UPDATE performance SET loadStart = ?, loadEnd = ?, totalLoad = ? WHERE id = ?`, [data['loadStart'], data['loadEnd'], data['totalLoad'], data['id']]);
+	return result;
+}
+async function updateActivity(data) {
+	const result = await pool.query(`UPDATE activity SET error = ?, mouseCoords = ?, clickCoords = ?, clickButton = ?, scrollCoords = ?, keyUp = ?, idleEnd = ?, idleDuration = ?, enteredPage = ?, lastPageURI = ? leftPage = ? WHERE id = ?`, [data['error'], data['mouseCoords'], data['clickCoords'], data['clickButton'], data['scrollCoords'], data['keyUp'], data['idleEnd'], data['idleDuration'], data['enteredPage'], data['lastPageURI'], data['leftPage'], data['id']]);
 	return result;
 }
 
@@ -73,6 +89,16 @@ app.get('/performance/:id', async (req, res) => {
 	res.send(out);
 });
 
+app.get('/activity', async (req, res) => {
+	const out = await getAllActivity();
+	res.send(out);
+});
+app.get('/activity/:id', async (req, res) => {
+	const id = req.params.id;
+	const out = await getPerf(id);
+	res.send(out);
+})
+
 
 
 /* POST Methods */
@@ -86,6 +112,11 @@ app.post('/performance', async (req, res) => {
 	res.status(201).send(out);
 });
 
+app.post('/activity', async (req, res) => {
+	const out = await createActivity(req.body);
+	res.status(201).send(out);
+});
+
 /* UPDATE Methods */
 app.post('/static/:id', async (req, res) => {
 	const out = await updateStatic(req.body);
@@ -96,6 +127,11 @@ app.post('/performance/:id', async (req, res) => {
 	const out = await updatePerf(req.body);
 	res.send(out);
 });
+
+app.post('/activity/:id', async (req, res) => {
+	const out = await updateActivity(req.body);
+	res.send(out);
+})
 
 app.use((err, req, res, next) => {
 	console.error(err.stack);

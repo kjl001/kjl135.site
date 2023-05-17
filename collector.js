@@ -38,6 +38,7 @@ function load() {
 		totalLoad: p.loadEventEnd - p.loadEventStart
 	};
 
+	post(staticData, "static");
 	put(staticData, "static");
 
 	post(performanceData, "performance");
@@ -97,56 +98,80 @@ window.onload = function () {
 };
 
 /* Activity data */
+const activityData = {
+	id: getCookie('pvisitor'),
+	error: 'N/A',
+	mouseCoords: 'N/A',
+	clickCoords: 'N/A',
+	clickButton: 'N/A',
+	scrollCoords: 'N/A',
+	keyUp: 'N/A',
+	idleEnd: 'N/A',
+	idleDuration: 0,
+	enteredPage: 'N/A',
+	lastPageURI: 'N/A',
+	leftPage: 'N/A'
+}
+
+function resetActivity() {
+	activityData['error'] = 'N/A';
+	activityData['mouseCoords'] = 'N/A';
+	activityData['clickCoords'] = 'N/A';
+	activityData['clickButton'] = 'N/A';
+	activityData['scrollCoords'] = 'N/A';
+	activityData['keyUp'] = 'N/A';
+	activityData['idleEnd'] = 'N/A';
+	activityData['idleDuration'] = 0;
+	activityData['enteredPage'] = 'N/A';
+	activityData['lastPageURI'] = 'N/A';
+	activityData['leftPage'] = 'N/A';
+}
 
 /* On error */
 window.addEventListener("error", (event) => {
-	const error = {
-		error: `${event.type}: ${event.message}`,
-	};
+	resetActivity();
+	activityData['error'] = `${event.type}: ${event.message}`;
 
-	post(error, "activity");
+	post(activityData, "activity");
+	put(activityData, "activity");
 });
 
 /* Mouse activity */
 window.addEventListener("mousemove", (event) => {
-	const mouse = {
-		mouseCoordinates: `X: ${event.offsetX}, Y: ${event.offsetY}`,
-	};
+	resetActivity();
+	activityData['mouseCoords'] = `X: ${event.offsetX}, Y: ${event.offsetY}`;
 
-	post(mouse, "activity");
+	post(activityData, "activity");
+	put(activityData, "activity");
 });
 
 window.addEventListener("click", (event) => {
-	const click = {
-		mouseCoordinates: `X: ${event.offsetX}, Y: ${event.offsetY}`,
-		button: event.button,
-	};
+	resetActivity();
+	activityData['clickCoords'] = `X: ${event.offsetX}, Y: ${event.offsetY}`;
+	activityData['clickButton'] = event.button;
 
-	post(click, "activty");
+	post(activityData, "activty");
+	put(activityData, "activity");
 });
 
 window.addEventListener("scroll", (event) => {
-	const scroll = {
-		scrollCoordinates: `X: ${window.scrollX}, Y: ${window.scrollY}`,
-	};
+	resetActivity();
+	activityData['scrollCoords'] = `X: ${window.scrollX}, Y: ${window.scrollY}`;
 
-	post(scroll, "activity");
+	post(activityData, "activity");
+	put(activityData, "activity");
 });
 
 /* Keyboard activity */
 window.addEventListener("keyup", (event) => {
-	const data = {
-		keyUp: event.code,
-	};
+	resetActivity();
+	activityData['keyUp'] = event.code;
 
-	post(data, "activity");
+	post(activityData, "activity");
+	put(activityData, "activity");
 });
 
 /* Idle time */
-const idleData = {
-	idleEnd: new Date(),
-	idleDuration: 0
-}
 var idleStart = new Date();
 function idleTime() {
 	var time;
@@ -155,9 +180,14 @@ function idleTime() {
 	document.onkeydown = resetTimer;
 
 	function send() {
-		idleData["idleEnd"] = new Date();
-		idleData["idleDuration"] = Math.abs(idleData["idleEnd"] - idleStart);
-		post(idleData, "activity");
+		const currTime = new Date();
+
+		resetActivity();
+		activityData['idleEnd'] = currTime.toString();
+		activityData['idleDuration'] = Math.abs(currTime - idleStart);
+
+		post(activityData, "activity");
+		put(activityData, "activity");
 	}
 
 	function resetTimer() {
@@ -169,19 +199,19 @@ function idleTime() {
 
 /* When user enters page */
 function enterPage() {
-	const data = {
-		enteredPage: new Date(),
-		lastPageURI: document.referrer
-	}
+	resetActivity();
+	activityData['enteredPage'] = new Date().toString();
+	activityData['lastPageURI'] = document.referrer;
 
-	post(data, "activity");
+	post(activityData, "activity");
+	put(activityData, "activity");
 }
 
 /* When user leaves page */
 window.addEventListener("beforeunload", (event) => {
-	const data = {
-		leftPage: new Date()
-	}
+	resetActivity();
+	activityData['leftPage'] = new Date().toString();
 
-	post(data, "activity");
+	post(activityData, "activity");
+	put(activityData, "activity");
 });

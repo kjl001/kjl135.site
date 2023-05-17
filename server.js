@@ -60,7 +60,7 @@ async function updatePerf(data) {
 	return result;
 }
 async function updateActivity(data) {
-	const result = await pool.query(`UPDATE activity SET error = ?, mouseCoords = ?, clickCoords = ?, clickButton = ?, scrollCoords = ?, keyUp = ?, idleEnd = ?, idleDuration = ?, enteredPage = ?, lastPageURI = ? leftPage = ? WHERE id = ?`, [data['error'], data['mouseCoords'], data['clickCoords'], data['clickButton'], data['scrollCoords'], data['keyUp'], data['idleEnd'], data['idleDuration'], data['enteredPage'], data['lastPageURI'], data['leftPage'], data['id']]);
+	const result = await pool.query(`UPDATE activity SET error = ?, mouseCoords = ?, clickCoords = ?, clickButton = ?, scrollCoords = ?, keyUp = ?, idleEnd = ?, idleDuration = ?, enteredPage = ?, lastPageURI = ?, leftPage = ? WHERE id = ?`, [data['error'], data['mouseCoords'], data['clickCoords'], data['clickButton'], data['scrollCoords'], data['keyUp'], data['idleEnd'], data['idleDuration'], data['enteredPage'], data['lastPageURI'], data['leftPage'], data['id']]);
 	return result;
 }
 

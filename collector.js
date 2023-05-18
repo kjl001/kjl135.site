@@ -133,7 +133,7 @@ window.addEventListener("click", (event) => {
 	activityData['clickCoords'] = `X: ${event.offsetX}, Y: ${event.offsetY}`;
 	activityData['clickButton'] = event.button;
 
-	post(activityData, "activty");
+	post(activityData, "activity");
 	put(activityData, "activity");
 });
 

@@ -30,8 +30,10 @@
 
 			if (res.ok) {
 				let data = await res.json();
-				console.log(data);
-				return data;
+
+				for (d in data) {
+					console.log(d);
+				}
 			} else {
 				console.log("GET ERROR");
 			}
@@ -40,10 +42,7 @@
 		window.addEventListener('load', async function () {
 			const cookie = getCookie("pvisitor");
 			//const perfData = await get("performance", cookie);
-			const perfData = get("performance", cookie);
-			for (data in perfData) {
-				console.log(data);
-			}
+			get("performance", cookie);
 
 			let loadStarts = [];
 			let loadEnds = [];

@@ -45,11 +45,18 @@
 			let loadStarts = [];
 			let loadEnds = [];
 			let totalLoads = [];
-			for (const data in perfData) {
+			for (data in perfData) {
 				loadStarts.push(data["loadStart"]);
 				loadEnds.push(data["loadEnd"]);
 				totalLoads.push(data["totalLoad"]);
 			}
+
+			console.log("Load Starts");
+			console.log(loadStarts);
+			console.log("Load Ends");
+			console.log(loadEnds);
+			console.log("TOTAL LOADS");
+			console.log(totalLoads);
 
 			zingchart.render({
 				id: "line",

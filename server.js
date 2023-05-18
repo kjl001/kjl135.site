@@ -24,15 +24,15 @@ async function getAllActivity() {
 
 /* Get Single from Table */
 async function getStatic(id) {
-	const [rows] = await pool.query(`SELECT * FROM static WHERE id = ?`, [id]);
+	const [rows] = await pool.query(`SELECT * FROM static WHERE uid = ?`, [id]);
 	return rows[0];
 }
 async function getPerf(id) {
-	const [rows] = await pool.query(`SELECT * FROM performance WHERE id = ?`, [id]);
+	const [rows] = await pool.query(`SELECT * FROM performance WHERE uid = ?`, [id]);
 	return rows[0];
 }
 async function getActivity(id) {
-	const [rows] = await pool.query(`SELECT * FROM activity WHERE id = ?`, [id]);
+	const [rows] = await pool.query(`SELECT * FROM activity WHERE uid = ?`, [id]);
 	return rows[0];
 }
 
@@ -95,7 +95,7 @@ app.get('/activity', async (req, res) => {
 });
 app.get('/activity/:id', async (req, res) => {
 	const id = req.params.id;
-	const out = await getPerf(id);
+	const out = await getActivity(id);
 	res.send(out);
 })
 

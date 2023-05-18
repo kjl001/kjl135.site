@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Kevin Lee's CSE135 Site Dataviz">
+	<meta name="author" content="Kevin Lee">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>KJL135 Site Dataviz</title>
+	<link href="images/favicon.ico" rel="icon">
+
+	<script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+</head>
+
+<body>
+	<section id="line"></section>
+	
+	<script>
+		/* Get cookie helper function from John S from Stack Overflow*/
+		function getCookie(name) {
+			function escape(s) { return s.replace(/([.*+?\^$(){}|\[\]\/\\])/g, '\\$1'); }
+			var match = document.cookie.match(RegExp('(?:^|;\\s*)' + escape(name) + '=([^;]*)'));
+			return match ? match[1] : null;
+		}
+
+		async function get(type, id) {
+			const url = `https://kjl135.site/mysql/${type}/${id}`;
+			const res = await fetch(url, {
+				method: "GET",
+				headers: {
+					"Content-Type": "application/json"
+				}
+			}).then(response => {
+
+			}).catch(error => {
+				console.log(error);
+			});
+
+			return res;
+		}
+
+		window.addEventListener('load', function () {
+			const cookie = getCookie("pvisitor");
+			const perfData = get("performance", cookie);
+
+			let loadStarts = [];
+			let loadEnds = [];
+			let totalLoads = [];
+			for (const data in perfData) {
+				loadStarts.push(data["loadStart"]);
+				loadEnds.push(data["loadEnd"]);
+				totalLoads.push(data["totalLoad"]);
+			}
+
+			zingchart.render({
+				id: "line",
+				width: "100%",
+				height: 400,
+				data: {
+					type: 'line',
+					title: {
+						text: "Line Chart"
+					},
+					series: [
+						{
+							values: loadStarts,
+							text: "Load Start Time"
+						},
+						{
+							values: loadEnds,
+							text: "Load End Time"
+						},
+						{
+							values: totalLoads,
+							text: "Toal Load Duration"
+						}
+					]
+				}
+			});
+		});
+	</script>
+</body>
+</html>

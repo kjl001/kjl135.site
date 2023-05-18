@@ -26,11 +26,14 @@
 			const url = `https://kjl135.site/mysql/${type}/${id}`;
 			const res = await fetch(url, {
 				method: "GET"
-			}).then(response => {
-				console.log(response);
-			}).catch(error => {
-				console.log(error);
 			});
+
+			if (res.ok) {
+				let data = await res.json();
+				console.log(data);
+			} else {
+				console.log("GET ERROR");
+			}
 		}
 
 		window.addEventListener('load', async function () {

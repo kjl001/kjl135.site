@@ -20,12 +20,8 @@ function load() {
 		cssEnabled: document.getElementById("time").style.backgroundColor == "lightgray",
 		windowWidth: screen.width,
 		windowHeight: screen.height,
-		netType: ""
+		netType: navigator.connection.type
 	};
-
-	const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-	const type = connection.type;
-	staticData['netType'] = type;
 
 	if ((document.getElementById("flag").offsetWidth == 1 && document.getElementById("flag").readyState == "complete") ||
 		(document.getElementById("flag").offsetWidth == 1 && document.getElementById("flag").readyState == undefined)) {

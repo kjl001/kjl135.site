@@ -46,7 +46,7 @@ async function createPerf(data) {
 	return result;
 }
 async function createActivity(data) {
-	const result = await pool.query(`INSERT INTO activity (uid, error, mouseCoords, clickCoords, clickButton, scrollCoords, keyUp, idleEnd, idleDuration, enteredPage, lastPage, leftPage) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, [data['uid'], data['error'], data['mouseCoords'], data['clickCoords'], data['clickButton'], data['scrollCoords'], data['keyUp'], data['idleEnd'], data['idleDuration'], data['enteredPage'], data['lastPageURI'], data['leftPage']]);
+	const result = await pool.query(`INSERT INTO activity (uid, error, mouseCoords, clickCoords, clickButton, scrollCoords, keyUp, idleEnd, idleDuration, enteredPage, lastPageURI, leftPage) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, [data['uid'], data['error'], data['mouseCoords'], data['clickCoords'], data['clickButton'], data['scrollCoords'], data['keyUp'], data['idleEnd'], data['idleDuration'], data['enteredPage'], data['lastPageURI'], data['leftPage']]);
 	return result;
 }
 

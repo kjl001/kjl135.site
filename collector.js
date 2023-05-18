@@ -20,7 +20,7 @@ function load() {
 		cssEnabled: document.getElementById("time").style.backgroundColor == "lightgray",
 		windowWidth: screen.width,
 		windowHeight: screen.height,
-		netType: navigator.connection.type
+		netType: navigator.connection.type.toString()
 	};
 
 	if ((document.getElementById("flag").offsetWidth == 1 && document.getElementById("flag").readyState == "complete") ||

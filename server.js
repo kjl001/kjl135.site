@@ -22,18 +22,18 @@ async function getAllActivity() {
 	return rows;
 }
 
-/* Get Single from Table */
+/* Get Specific from Table */
 async function getStatic(id) {
 	const [rows] = await pool.query(`SELECT * FROM static WHERE uid = ?`, [id]);
-	return rows[0];
+	return rows;
 }
 async function getPerf(id) {
 	const [rows] = await pool.query(`SELECT * FROM performance WHERE uid = ?`, [id]);
-	return rows[0];
+	return rows;
 }
 async function getActivity(id) {
 	const [rows] = await pool.query(`SELECT * FROM activity WHERE uid = ?`, [id]);
-	return rows[0];
+	return rows;
 }
 
 /* Create Row in Table */

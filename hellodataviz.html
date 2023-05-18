@@ -25,10 +25,7 @@
 		async function get(type, id) {
 			const url = `https://kjl135.site/mysql/${type}/${id}`;
 			const res = await fetch(url, {
-				method: "GET",
-				headers: {
-					"Content-Type": "application/json"
-				}
+				method: "GET"
 			}).then(response => {
 
 			}).catch(error => {

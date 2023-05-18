@@ -36,9 +36,9 @@
 			}
 		}
 
-		window.addEventListener('load', function () {
+		window.addEventListener('load', async function () {
 			const cookie = getCookie("pvisitor");
-			const perfData = get("performance", cookie);
+			const perfData = await get("performance", cookie);
 
 			let loadStarts = [];
 			let loadEnds = [];

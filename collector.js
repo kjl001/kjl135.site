@@ -43,21 +43,6 @@ function load() {
 	post(performanceData, "performance");
 }
 
-/* Check if data exists */
-async function check(data, type) {
-	const url = `https://kjl135.site/mysql/${type}/${data['id']}`;
-	const res = await fetch(url, {
-		method: "GET",
-		headers: {
-			"Content-Type": "application/json"
-		}
-	}).then(response => {
-		put(data, type);
-	}).catch(error => {
-		post(data, type);
-	})
-}
-
 /* Post to URL */
 async function post(data, type) {
 	const url = `https://kjl135.site/mysql/${type}`;
@@ -160,7 +145,6 @@ function idleTime() {
 		activityData['idleDuration'] = Math.abs(currTime - idleStart);
 
 		post(activityData, "activity");
-		put(activityData, "activity");
 	}
 
 	function resetTimer() {

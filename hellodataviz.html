@@ -24,15 +24,16 @@
 
 		async function get(type, id) {
 			const url = `https://kjl135.site/mysql/${type}/${id}`;
-			const res = await fetch(url, {
+			const response = await fetch(url, {
 				method: "GET"
-			}).then(response => {
-
-			}).catch(error => {
-				console.log(error);
 			});
 
-			return res;
+			if (response.ok) {
+				let data = await response;
+				return data;
+			} else {
+				console.log("GET ERROR");
+			}
 		}
 
 		window.addEventListener('load', function () {

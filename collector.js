@@ -96,8 +96,23 @@ const activityData = {
 	leftPage: 'N/A'
 }
 
+function resetActivity() {
+	activityData['error'] = 'N/A';
+	activityData['mouseCoords'] = 'N/A';
+	activityData['clickCoords'] = 'N/A';
+	activityData['clickButton'] = 'N/A';
+	activityData['scrollCoords'] = 'N/A';
+	activityData['keyUp'] = 'N/A';
+	activityData['idleEnd'] = 'N/A';
+	activityData['idleDuration'] = 0;
+	activityData['enteredPage'] = 'N/A';
+	activityData['lastPageURI'] = 'N/A';
+	activityData['leftPage'] = 'N/A';
+}
+
 /* On error */
 window.addEventListener("error", (event) => {
+	resetActivity();
 	activityData['error'] = `${event.type}: ${event.message}`;
 
 	post(activityData, "activity");
@@ -105,12 +120,14 @@ window.addEventListener("error", (event) => {
 
 /* Mouse activity */
 window.addEventListener("mousemove", (event) => {
+	resetActivity();
 	activityData['mouseCoords'] = `X: ${event.offsetX}, Y: ${event.offsetY}`;
 
 	post(activityData, "activity");
 });
 
-window.addEventListener("click", (event) => {
+window.addEventListener("mouseup", (event) => {
+	resetActivity();
 	activityData['clickCoords'] = `X: ${event.offsetX}, Y: ${event.offsetY}`;
 	activityData['clickButton'] = event.button;
 
@@ -118,6 +135,7 @@ window.addEventListener("click", (event) => {
 });
 
 window.addEventListener("scroll", (event) => {
+	resetActivity();
 	activityData['scrollCoords'] = `X: ${window.scrollX}, Y: ${window.scrollY}`;
 
 	post(activityData, "activity");
@@ -125,6 +143,7 @@ window.addEventListener("scroll", (event) => {
 
 /* Keyboard activity */
 window.addEventListener("keyup", (event) => {
+	resetActivity();
 	activityData['keyUp'] = event.code;
 
 	post(activityData, "activity");
@@ -141,6 +160,7 @@ function idleTime() {
 	function send() {
 		const currTime = new Date();
 
+		resetActivity();
 		activityData['idleEnd'] = currTime.toString();
 		activityData['idleDuration'] = Math.abs(currTime - idleStart);
 
@@ -156,6 +176,7 @@ function idleTime() {
 
 /* When user enters page */
 function enterPage() {
+	resetActivity();
 	activityData['enteredPage'] = new Date().toString();
 	activityData['lastPageURI'] = document.referrer;
 
@@ -164,6 +185,7 @@ function enterPage() {
 
 /* When user leaves page */
 window.addEventListener("beforeunload", (event) => {
+	resetActivity();
 	activityData['leftPage'] = new Date().toString();
 
 	post(activityData, "activity");

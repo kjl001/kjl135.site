@@ -30,10 +30,42 @@
 
 			if (res.ok) {
 				let data = await res.json();
+				
+				let loadStarts = [];
+				let loadEnds = [];
+				let totalLoads = [];
 
-				for (d in data) {
-					console.log(d);
+				for (key in data) {
+					loadStarts.push(data[key]["loadStart"]);
+					loadEnds.push(data[key]["loadEnd"]);
+					totalLoads.push(data[key]["totalLoad"]);
 				}
+
+				zingchart.render({
+					id: "line",
+					width: "100%",
+					height: 400,
+					data: {
+						type: 'line',
+						title: {
+							text: "Line Chart"
+						},
+						series: [
+							{
+								values: loadStarts,
+								text: "Load Start Time"
+							},
+							{
+								values: loadEnds,
+								text: "Load End Time"
+							},
+							{
+								values: totalLoads,
+								text: "Toal Load Duration"
+							}
+						]
+					}
+				});
 			} else {
 				console.log("GET ERROR");
 			}
@@ -41,52 +73,8 @@
 
 		window.addEventListener('load', async function () {
 			const cookie = getCookie("pvisitor");
-			//const perfData = await get("performance", cookie);
 			get("performance", cookie);
 
-			let loadStarts = [];
-			let loadEnds = [];
-			let totalLoads = [];
-			/*for (data in perfData) {
-				loadStarts.push(data["loadStart"]);
-				loadEnds.push(data["loadEnd"]);
-				totalLoads.push(data["totalLoad"]);
-			}*/
-
-			//console.log("Performance Data");
-			//console.log(perfData);
-			console.log("Load Starts");
-			console.log(loadStarts);
-			console.log("Load Ends");
-			console.log(loadEnds);
-			console.log("TOTAL LOADS");
-			console.log(totalLoads);
-
-			zingchart.render({
-				id: "line",
-				width: "100%",
-				height: 400,
-				data: {
-					type: 'line',
-					title: {
-						text: "Line Chart"
-					},
-					series: [
-						{
-							values: loadStarts,
-							text: "Load Start Time"
-						},
-						{
-							values: loadEnds,
-							text: "Load End Time"
-						},
-						{
-							values: totalLoads,
-							text: "Toal Load Duration"
-						}
-					]
-				}
-			});
 		});
 	</script>
 </body>

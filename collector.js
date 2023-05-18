@@ -39,10 +39,8 @@ function load() {
 	};
 
 	post(staticData, "static");
-	put(staticData, "static");
 
 	post(performanceData, "performance");
-	put(performanceData, "performance");
 }
 
 /* Check if data exists */
@@ -118,7 +116,6 @@ window.addEventListener("error", (event) => {
 	activityData['error'] = `${event.type}: ${event.message}`;
 
 	post(activityData, "activity");
-	put(activityData, "activity");
 });
 
 /* Mouse activity */
@@ -126,7 +123,6 @@ window.addEventListener("mousemove", (event) => {
 	activityData['mouseCoords'] = `X: ${event.offsetX}, Y: ${event.offsetY}`;
 
 	post(activityData, "activity");
-	put(activityData, "activity");
 });
 
 window.addEventListener("click", (event) => {
@@ -134,14 +130,12 @@ window.addEventListener("click", (event) => {
 	activityData['clickButton'] = event.button;
 
 	post(activityData, "activity");
-	put(activityData, "activity");
 });
 
 window.addEventListener("scroll", (event) => {
 	activityData['scrollCoords'] = `X: ${window.scrollX}, Y: ${window.scrollY}`;
 
 	post(activityData, "activity");
-	put(activityData, "activity");
 });
 
 /* Keyboard activity */
@@ -149,7 +143,6 @@ window.addEventListener("keyup", (event) => {
 	activityData['keyUp'] = event.code;
 
 	post(activityData, "activity");
-	put(activityData, "activity");
 });
 
 /* Idle time */
@@ -183,7 +176,6 @@ function enterPage() {
 	activityData['lastPageURI'] = document.referrer;
 
 	post(activityData, "activity");
-	put(activityData, "activity");
 }
 
 /* When user leaves page */
@@ -191,5 +183,4 @@ window.addEventListener("beforeunload", (event) => {
 	activityData['leftPage'] = new Date().toString();
 
 	post(activityData, "activity");
-	put(activityData, "activity");
 });

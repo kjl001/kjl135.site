@@ -38,15 +38,15 @@ async function getActivity(id) {
 
 /* Create Row in Table */
 async function createStatic(data) {
-	const result = await pool.query(`INSERT INTO static VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, [data['uid'], data['userAgent'], data['userLanguage'], data['cookieEnabled'], data['jsEnabled'], data['imgEnabled'], data['cssEnabled'], data['windowWidth'], data['windowHeight'], data['netType']]);
+	const result = await pool.query(`INSERT INTO static (uid, userAgent, userLanguage, cookieEnabled, jsEnabled, imgEnabled, cssEnabled, windowWidth, windowHeight, netType) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, [data['uid'], data['userAgent'], data['userLanguage'], data['cookieEnabled'], data['jsEnabled'], data['imgEnabled'], data['cssEnabled'], data['windowWidth'], data['windowHeight'], data['netType']]);
 	return result;
 }
 async function createPerf(data) {
-	const result = await pool.query(`INSERT INTO performance VALUES (?, ?, ?, ?)`, [data['uid'], data['loadStart'], data['loadEnd'], data['totalLoad']]);
+	const result = await pool.query(`INSERT INTO performance (uid, loadStart, loadEnd, totalLoad) VALUES (?, ?, ?, ?)`, [data['uid'], data['loadStart'], data['loadEnd'], data['totalLoad']]);
 	return result;
 }
 async function createActivity(data) {
-	const result = await pool.query(`INSERT INTO activity VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, [data['uid'], data['error'], data['mouseCoords'], data['clickCoords'], data['clickButton'], data['scrollCoords'], data['keyUp'], data['idleEnd'], data['idleDuration'], data['enteredPage'], data['lastPageURI'], data['leftPage']]);
+	const result = await pool.query(`INSERT INTO activity (uid, error, mouseCoords, clickCoords, clickButton, scrollCoords, keyUp, idleEnd, idleDuration, enteredPage, lastPage, leftPage) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, [data['uid'], data['error'], data['mouseCoords'], data['clickCoords'], data['clickButton'], data['scrollCoords'], data['keyUp'], data['idleEnd'], data['idleDuration'], data['enteredPage'], data['lastPageURI'], data['leftPage']]);
 	return result;
 }
 

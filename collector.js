@@ -11,7 +11,7 @@ function load() {
 
 	const cookie = getCookie("pvisitor");
 	const staticData = {
-		id: cookie,
+		uid: cookie,
 		userAgent: navigator.userAgent,
 		userLanguage: navigator.language,
 		cookieEnabled: navigator.cookieEnabled,
@@ -32,7 +32,7 @@ function load() {
 	const perfEntries = performance.getEntriesByType("navigation");
 	const [p] = perfEntries;
 	const performanceData = {
-		id: cookie,
+		uid: cookie,
 		loadStart: p.loadEventStart,
 		loadEnd: p.loadEventEnd,
 		totalLoad: p.loadEventEnd - p.loadEventStart
@@ -99,7 +99,7 @@ window.onload = function () {
 
 /* Activity data */
 const activityData = {
-	id: getCookie('pvisitor'),
+	uid: getCookie('pvisitor'),
 	error: 'N/A',
 	mouseCoords: 'N/A',
 	clickCoords: 'N/A',

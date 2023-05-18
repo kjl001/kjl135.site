@@ -38,29 +38,29 @@ async function getActivity(id) {
 
 /* Create Row in Table */
 async function createStatic(data) {
-	const result = await pool.query(`INSERT IGNORE INTO static VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, [data['id'], data['userAgent'], data['userLanguage'], data['cookieEnabled'], data['jsEnabled'], data['imgEnabled'], data['cssEnabled'], data['windowWidth'], data['windowHeight'], data['netType']]);
+	const result = await pool.query(`INSERT INTO static VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, [data['uid'], data['userAgent'], data['userLanguage'], data['cookieEnabled'], data['jsEnabled'], data['imgEnabled'], data['cssEnabled'], data['windowWidth'], data['windowHeight'], data['netType']]);
 	return result;
 }
 async function createPerf(data) {
-	const result = await pool.query(`INSERT IGNORE INTO performance VALUES (?, ?, ?, ?)`, [data['id'], data['loadStart'], data['loadEnd'], data['totalLoad']]);
+	const result = await pool.query(`INSERT INTO performance VALUES (?, ?, ?, ?)`, [data['uid'], data['loadStart'], data['loadEnd'], data['totalLoad']]);
 	return result;
 }
 async function createActivity(data) {
-	const result = await pool.query(`INSERT IGNORE INTO activity VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, [data['id'], data['error'], data['mouseCoords'], data['clickCoords'], data['clickButton'], data['scrollCoords'], data['keyUp'], data['idleEnd'], data['idleDuration'], data['enteredPage'], data['lastPageURI'], data['leftPage']]);
+	const result = await pool.query(`INSERT INTO activity VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, [data['uid'], data['error'], data['mouseCoords'], data['clickCoords'], data['clickButton'], data['scrollCoords'], data['keyUp'], data['idleEnd'], data['idleDuration'], data['enteredPage'], data['lastPageURI'], data['leftPage']]);
 	return result;
 }
 
 /* Update Row in Table */
-async function updateStatic(data) {
-	const result = await pool.query(`UPDATE static SET userAgent = ?, userLanguage = ?, cookieEnabled = ?, jsEnabled = ?, imgEnabled = ?, cssEnabled = ?, windowWidth = ?, windowHeight = ?, netType = ? WHERE id = ?`, [data['userAgent'], data['userLanguage'], data['cookieEnabled'], data['jsEnabled'], data['imgEnabled'], data['cssEnabled'], data['windowWidth'], data['windowHeight'], data['netType'], data['id']]);
+async function updateStatic(data, id) {
+	const result = await pool.query(`UPDATE static SET uid = ?, userAgent = ?, userLanguage = ?, cookieEnabled = ?, jsEnabled = ?, imgEnabled = ?, cssEnabled = ?, windowWidth = ?, windowHeight = ?, netType = ? WHERE id = ?`, [data['uid'], data['userAgent'], data['userLanguage'], data['cookieEnabled'], data['jsEnabled'], data['imgEnabled'], data['cssEnabled'], data['windowWidth'], data['windowHeight'], data['netType'], id]);
 	return result;
 }
-async function updatePerf(data) {
-	const result = await pool.query(`UPDATE performance SET loadStart = ?, loadEnd = ?, totalLoad = ? WHERE id = ?`, [data['loadStart'], data['loadEnd'], data['totalLoad'], data['id']]);
+async function updatePerf(data, id) {
+	const result = await pool.query(`UPDATE performance SET uid = ?, loadStart = ?, loadEnd = ?, totalLoad = ? WHERE id = ?`, [data['uid'], data['loadStart'], data['loadEnd'], data['totalLoad'], id]);
 	return result;
 }
-async function updateActivity(data) {
-	const result = await pool.query(`UPDATE activity SET error = ?, mouseCoords = ?, clickCoords = ?, clickButton = ?, scrollCoords = ?, keyUp = ?, idleEnd = ?, idleDuration = ?, enteredPage = ?, lastPageURI = ?, leftPage = ? WHERE id = ?`, [data['error'], data['mouseCoords'], data['clickCoords'], data['clickButton'], data['scrollCoords'], data['keyUp'], data['idleEnd'], data['idleDuration'], data['enteredPage'], data['lastPageURI'], data['leftPage'], data['id']]);
+async function updateActivity(data, id) {
+	const result = await pool.query(`UPDATE activity SET uid = ?, error = ?, mouseCoords = ?, clickCoords = ?, clickButton = ?, scrollCoords = ?, keyUp = ?, idleEnd = ?, idleDuration = ?, enteredPage = ?, lastPageURI = ?, leftPage = ? WHERE id = ?`, [data['uid'], data['error'], data['mouseCoords'], data['clickCoords'], data['clickButton'], data['scrollCoords'], data['keyUp'], data['idleEnd'], data['idleDuration'], data['enteredPage'], data['lastPageURI'], data['leftPage'], id]);
 	return result;
 }
 
@@ -119,17 +119,20 @@ app.post('/activity', async (req, res) => {
 
 /* UPDATE Methods */
 app.post('/static/:id', async (req, res) => {
-	const out = await updateStatic(req.body);
+	const id = req.params.id;
+	const out = await updateStatic(req.body, id);
 	res.send(out);
 });
 
 app.post('/performance/:id', async (req, res) => {
-	const out = await updatePerf(req.body);
+	const id = req.params.id;
+	const out = await updatePerf(req.body, id);
 	res.send(out);
 });
 
 app.post('/activity/:id', async (req, res) => {
-	const out = await updateActivity(req.body);
+	const id = req.params.id;
+	const out = await updateActivity(req.body, id);
 	res.send(out);
 })
 

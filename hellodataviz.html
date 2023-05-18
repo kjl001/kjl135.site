@@ -27,7 +27,7 @@
 			const res = await fetch(url, {
 				method: "GET"
 			}).then(response => {
-				return response;
+				console.log(response);
 			}).catch(error => {
 				console.log(error);
 			});
@@ -35,7 +35,7 @@
 
 		window.addEventListener('load', async function () {
 			const cookie = getCookie("pvisitor");
-			const perfData = await get("performance", cookie);
+			//const perfData = await get("performance", cookie);
 
 			let loadStarts = [];
 			let loadEnds = [];
@@ -46,8 +46,8 @@
 				totalLoads.push(data["totalLoad"]);
 			}
 
-			console.log("Performance Data");
-			console.log(perfData);
+			//console.log("Performance Data");
+			//console.log(perfData);
 			console.log("Load Starts");
 			console.log(loadStarts);
 			console.log("Load Ends");

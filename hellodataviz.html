@@ -50,7 +50,7 @@
 					data: {
 						type: 'line',
 						title: {
-							text: "Line Chart"
+							text: "Change in Load Times"
 						},
 						series: [
 							{
@@ -101,7 +101,7 @@
 					data: {
 						type: "bar",
 						title: {
-							text: "Bar Chart"
+							text: "Number of Left Clicks VS Right Clicks"
 						},
 						"scale-x": {
 							labels: ["Left Clicks", "Right Clicks"]
@@ -145,22 +145,6 @@
 					sum += pie[key];
 				}
 
-				/*let percentages = 0;
-				let max = 0;
-				let savedKey = "";
-				for (key in pie) {
-					if (pie[key] > max) {
-						max = pie[key];
-						savedKey = key;
-					}
-					percentages += Math.round((pie[key] / sum) * 100);
-					pie[key] = Math.round((pie[key] / sum * 100));
-				}
-
-				if (percentages > 100) {
-					pie[savedKey] -= percentages - 100;
-				} */
-
 				let pieConfig = [];
 				for (key in pie) {
 					pieConfig.push({
@@ -188,7 +172,7 @@
 							}
 						},
 						title: {
-							text: "Pie Chart"
+							text: "Percentages of Times a Key Was Pressed"
 						},
 						series: pieConfig
 					},

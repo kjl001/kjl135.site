@@ -145,12 +145,13 @@
 					sum += pie[key];
 				}
 
-				let config = [];
+				console.log(pie);
+
+				let pieConfig = [];
 				for (key in pie) {
-					config.push({
+					pieConfig.push({
 						values: [pie[key] / sum],
-						text: key,
-						detached: pie[key] % 2 == 0
+						text: key
 					});
 				}
 
@@ -159,7 +160,7 @@
 					title: {
 						text: "Pie Chart"
 					},
-					series: config,
+					series: pieConfig,
 					height: 400,
 					width: "100%"
 				});

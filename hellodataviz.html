@@ -12,7 +12,8 @@
 </head>
 
 <body>
-	<section id="line"></section>
+	<section id="loadStart"></section>
+	<section id="loadEnd"></section>
 	<section id="bar"></section>
 	<section id="pie"></section>
 	
@@ -44,19 +45,63 @@
 				}
 
 				zingchart.render({
-					id: "line",
+					id: "loadStart",
 					width: "100%",
 					height: 400,
 					data: {
 						type: 'line',
 						title: {
-							text: "Change in Load Times"
+							text: "Load Start Time VS Load Duration"
+						},
+						"legend": {
+							"layout": "float",
+							"background-color": "none",
+							"border-width": 0,
+							"shadow": 0,
+							"align": "center",
+							"adjust-layout": true,
+							"item": {
+								"padding": 7,
+								"marginRight": 17,
+								"cursor": "hand"
+							}
 						},
 						series: [
 							{
 								values: loadStarts,
 								text: "Load Start Time"
 							},
+							{
+								values: totalLoads,
+								text: "Toal Load Duration"
+							}
+						]
+					}
+				});
+
+				zingchart.render({
+					id: "loadEnd",
+					width: "100%",
+					height: 400,
+					data: {
+						type: 'line',
+						title: {
+							text: "Load End Time VS Load Duration"
+						},
+						"legend": {
+							"layout": "float",
+							"background-color": "none",
+							"border-width": 0,
+							"shadow": 0,
+							"align": "center",
+							"adjust-layout": true,
+							"item": {
+								"padding": 7,
+								"marginRight": 17,
+								"cursor": "hand"
+							}
+						},
+						series: [
 							{
 								values: loadEnds,
 								text: "Load End Time"

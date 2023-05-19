@@ -172,27 +172,12 @@
 				}
 
 				zingchart.render({
+					type: "pie",
 					id: "pie",
 					title: {
 						text: "Pie Chart"
 					},
-					series: [
-						{
-							values: [59]
-						},
-						{
-							values: [55]
-						},
-						{
-							values: [30]
-						},
-						{
-							values: [20]
-						},
-						{
-							values: [15]
-						}
-					],
+					series: pieConfig,
 					height: 400,
 					width: "100%"
 				});

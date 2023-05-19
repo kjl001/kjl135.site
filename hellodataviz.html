@@ -145,12 +145,10 @@
 					sum += pie[key];
 				}
 
-				console.log(pie);
-
 				let pieConfig = [];
 				for (key in pie) {
 					pieConfig.push({
-						values: [pie[key] / sum],
+						values: [Math.round((pie[key] / sum) * 100)],
 						text: key
 					});
 				}

@@ -5,7 +5,8 @@ const pool = mysql.createPool({
 	host: process.env.MYSQL_HOST,
 	user: process.env.MYSQL_USER,
 	password: process.env.MYSQL_PASSWORD,
-	database: process.env.MYSQL_DATABASE
+	database: process.env.MYSQL_DATABASE,
+	port: process.env.MYSQL_PORT
 }).promise();
 
 /* Get All from Table */
@@ -141,6 +142,6 @@ app.use((err, req, res, next) => {
 	res.status(500).send("Something broke!");
 });
 
-app.listen(25060, () => {
-	console.log('Server is running on port 25060!');
+app.listen(3000, () => {
+	console.log('Server is running on port 3000!');
 });

@@ -14,6 +14,7 @@
 <body>
 	<section id="line"></section>
 	<section id="bar"></section>
+	<section id="pie"></section>
 	
 	<script>
 		/* Get cookie helper function from John S from Stack Overflow*/
@@ -117,11 +118,61 @@
 			}
 		}
 
+		async function getPie(type, id) {
+			const url = `https://kjl135.site/mysql/${type}/${id}`;
+			const response = fetch(url, {
+				method: "GET"
+			});
+
+			if (response.ok) {
+				let data = await response.json();
+
+				let pie = {};
+
+				for (key in data) {
+					if (data[key]["keyUp"] != "N/A") {
+						if (pie.hasOwnProperty(data[key]["keyUp"])) {
+							pie[data[key]["keyUp"]] += 1;
+						}
+						else {
+							pie[data[key]["keyUp"]] = 1;
+						}
+					}
+				}
+
+				const sum = 0;
+				for (key in pie) {
+					sum += pie[key];
+				}
+
+				let config = [];
+				for (key in pie) {
+					config.push({
+						values: [pie[key] / sum],
+						text: key,
+						detached: pie[key] % 2 == 0
+					});
+				}
+
+				zingchart.render({
+					id: "pie",
+					title: {
+						text: "Pie Chart"
+					},
+					series: config,
+					height: 400,
+					width: "100%"
+				});
+			} else {
+				console.log("GET PIE ERROR");
+			}
+		}
+
 		window.addEventListener('load', async function () {
 			const cookie = getCookie("pvisitor");
 			getLine("performance", cookie);
 			getBar("activity", cookie);
-
+			getPie("activity", cookie);
 		});
 	</script>
 </body>

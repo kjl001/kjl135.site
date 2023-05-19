@@ -148,7 +148,7 @@
 				let pieConfig = [];
 				for (key in pie) {
 					pieConfig.push({
-						values: [Math.round((pie[key] / sum) * 100)],
+						values: [(pie[key] / sum) * 100],
 						text: key
 					});
 				}

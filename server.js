@@ -72,6 +72,20 @@ async function updateActivity(data, id) {
 	return result;
 }
 
+/*  Delete Row from Table */
+async function deleteStatic(id) {
+	const result = await pool.query(`DELETE FROM static WHERE id = ?`, [id]);
+	return result;
+}
+async function deletePerf(id) {
+	const result = await pool.query(`DELETE FROM performance WHERE id = ?`, [id]);
+	return result;
+}
+async function deleteActivity(id) {
+	const result = await pool.query(`DELETE FROM activity WHERE id = ?`, [id]);
+	return result;
+}
+
 
 const app = express();
 app.use(express.json());
@@ -142,6 +156,34 @@ app.post('/activity/:id', async (req, res) => {
 	const id = req.params.id;
 	const out = await updateActivity(req.body, id);
 	res.send(out);
+})
+
+/* DELETE Methods */
+app.post('/static/:id', async (req, res) => {
+	const header = req.header("x-delete-entry");
+	const id = req.params.id;
+	if (header == "TRUE") {
+		const out = await deleteStatic(id);
+		res.send(out);
+	}
+});
+
+app.post('/performance/:id', async (req, res) => {
+	const header = req.header("x-delete-entry");
+	const id = req.params.id;
+	if (header == "TRUE") {
+		const out = await deletePerf(id);
+		res.send(out);
+	}
+});
+
+app.post('/activity/:id', async (req, res) => {
+	const header = req.header("x-delete-entry");
+	const id = req.params.id;
+	if (header == "TRUE") {
+		const out = await deleteActivity(id);
+		res.send(out);
+	}
 })
 
 app.use((err, req, res, next) => {

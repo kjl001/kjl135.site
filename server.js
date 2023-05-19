@@ -141,21 +141,30 @@ app.post('/activity', async (req, res) => {
 
 /* UPDATE Methods */
 app.post('/static/:id', async (req, res) => {
+	const header = req.header("x-update-entry");
 	const id = req.params.id;
-	const out = await updateStatic(req.body, id);
-	res.send(out);
+	if (header == "TRUE") {
+		const out = await updateStatic(req.body, id);
+		res.send(out);
+	}
 });
 
 app.post('/performance/:id', async (req, res) => {
+	const header = req.header("x-update-entry");
 	const id = req.params.id;
-	const out = await updatePerf(req.body, id);
-	res.send(out);
+	if (header == "TRUE") {
+		const out = await updatePerf(req.body, id);
+		res.send(out);
+	}
 });
 
 app.post('/activity/:id', async (req, res) => {
+	const header = req.header("x-update-entry");
 	const id = req.params.id;
-	const out = await updateActivity(req.body, id);
-	res.send(out);
+	if (header == "TRUE") {
+		const out = await updateActivity(req.body, id);
+		res.send(out);
+	}
 })
 
 /* DELETE Methods */

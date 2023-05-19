@@ -171,14 +171,28 @@
 					});
 				}
 
-				console.log(pieConfig);
-
 				zingchart.render({
 					id: "pie",
 					title: {
 						text: "Pie Chart"
 					},
-					series: pieConfig,
+					series: [
+						{
+							values: [59]
+						},
+						{
+							values: [55]
+						},
+						{
+							values: [30]
+						},
+						{
+							values: [20]
+						},
+						{
+							values: [15]
+						}
+					],
 					height: 400,
 					width: "100%"
 				});

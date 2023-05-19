@@ -172,12 +172,14 @@
 				}
 
 				zingchart.render({
-					type: "pie",
 					id: "pie",
-					title: {
-						text: "Pie Chart"
+					data: {
+						type: "pie",
+						title: {
+							text: "Pie Chart"
+						},
+						series: pieConfig
 					},
-					series: pieConfig,
 					height: 400,
 					width: "100%"
 				});

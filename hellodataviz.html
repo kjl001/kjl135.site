@@ -145,7 +145,7 @@
 					sum += pie[key];
 				}
 
-				let percentages = 0;
+				/*let percentages = 0;
 				let max = 0;
 				let savedKey = "";
 				for (key in pie) {
@@ -159,15 +159,14 @@
 
 				if (percentages > 100) {
 					pie[savedKey] -= percentages - 100;
-				}
-
-				console.log(pie);
+				} */
 
 				let pieConfig = [];
 				for (key in pie) {
 					pieConfig.push({
-						values: [pie[key]],
-						text: key
+						values: [(pie[key] / sum) * 100],
+						text: key,
+						detached: (pie[key]/sum) * 100 > 10
 					});
 				}
 

@@ -2,11 +2,11 @@ import mysql from 'mysql2';
 import express from 'express';
 
 const pool = mysql.createPool({
-	host: process.env.MYSQL_HOST,
-	user: process.env.MYSQL_USER,
-	password: process.env.MYSQL_PASSWORD,
-	port: process.env.MYSQL_PORT,
-	database: process.env.MYSQL_DATABASE,
+	host: 'db-mysql-nyc1-69056-do-user-13916633-0.b.db.ondigitalocean.com',
+	user: 'doadmin',
+	password: 'AVNS_WaSDtypF_oh2rS4ZDAi',
+	port: 25060,
+	database: 'defaultdb',
 	waitForConnections: true,
 	connectionLimit: 10,
 	maxIdle: 10, // max idle connections, the default value is the same as `connectionLimit`

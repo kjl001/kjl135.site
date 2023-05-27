@@ -40,8 +40,8 @@
 			return match ? match[1] : null;
 		}
 
-		async function getLine(type, id) {
-			const url = `https://kjl135.site/mysql/${type}/${id}`;
+		async function getLine(type) {
+			const url = `https://kjl135.site/mysql/${type}`;
 			const response = await fetch(url, {
 				method: "GET"
 			});
@@ -137,8 +137,8 @@
 			}
 		}
 
-		async function getBar(type, id) {
-			const url = `https://kjl135.site/mysql/${type}/${id}`;
+		async function getBar(type) {
+			const url = `https://kjl135.site/mysql/${type}`;
 			const response = await fetch(url, {
 				method: "GET"
 			});
@@ -182,8 +182,8 @@
 			}
 		}
 
-		async function getPie(type, id) {
-			const url = `https://kjl135.site/mysql/${type}/${id}`;
+		async function getPie(type) {
+			const url = `https://kjl135.site/mysql/${type}`;
 			const response = await fetch(url, {
 				method: "GET"
 			});
@@ -250,9 +250,9 @@
 
 		window.addEventListener('load', async function () {
 			const cookie = getCookie("pvisitor");
-			getLine("performance", cookie);
-			getBar("activity", cookie);
-			getPie("activity", cookie);
+			getLine("performance");
+			getBar("activity");
+			getPie("activity");
 		});
 	</script>
 </body>

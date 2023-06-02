@@ -114,6 +114,14 @@ app.get('/performance/:id', async (req, res) => {
 
 app.get('/activity', async (req, res) => {
 	const out = await getAllActivity();
+
+	const header = req.header("x-req-report");
+	if (header == "true") {
+		res.header("Access-Control-Allow-Origin", "https://reporting.kjl135.site");
+	} else {
+		res.header("Access-Control-Allow-Origin", "https://kjl135.site");
+	}
+
 	res.send(out);
 });
 app.get('/activity/:id', async (req, res) => {

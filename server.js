@@ -1,6 +1,7 @@
 import mysql from 'mysql2';
 import express from 'express';
 import dotenv from 'dotenv';
+
 dotenv.config();
 
 const pool = mysql.createPool({
@@ -93,6 +94,7 @@ app.use(express.json());
 /* GET Methods */
 app.get('/static', async (req, res) => {
 	const out = await getAllStatic();
+	res.header("Access-Control-Allow-Origin", "https://kjl135.site, https://reporting.kjl135.site");
 	res.send(out);
 });
 app.get('/static/:id', async (req, res) => {
@@ -113,6 +115,7 @@ app.get('/performance/:id', async (req, res) => {
 
 app.get('/activity', async (req, res) => {
 	const out = await getAllActivity();
+	res.header("Access-Control-Allow-Origin", "https://kjl135.site, https://reporting.kjl135.site");
 	res.send(out);
 });
 app.get('/activity/:id', async (req, res) => {

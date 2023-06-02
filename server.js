@@ -96,6 +96,14 @@ app.use(cors());
 /* GET Methods */
 app.get('/static', async (req, res) => {
 	const out = await getAllStatic();
+
+	const header = req.header("x-req-report");
+	if (header == "true") {
+		res.header("Access-Control-Allow-Origin", "https://reporting.kjl135.site");
+	} else {
+		res.header("Access-Control-Allow-Origin", "https://kjl135.site");
+	}
+
 	res.send(out);
 });
 app.get('/static/:id', async (req, res) => {
@@ -106,6 +114,14 @@ app.get('/static/:id', async (req, res) => {
 
 app.get('/performance', async (req, res) => {
 	const out = await getAllPerf();
+
+	const header = req.header("x-req-report");
+	if (header == "true") {
+		res.header("Access-Control-Allow-Origin", "https://reporting.kjl135.site");
+	} else {
+		res.header("Access-Control-Allow-Origin", "https://kjl135.site");
+	}
+
 	res.send(out);
 });
 app.get('/performance/:id', async (req, res) => {

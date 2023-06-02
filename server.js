@@ -1,6 +1,7 @@
 import mysql from 'mysql2';
 import express from 'express';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 dotenv.config();
 
@@ -90,6 +91,7 @@ async function deleteActivity(id) {
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 /* GET Methods */
 app.get('/static', async (req, res) => {

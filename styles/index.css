@@ -27,11 +27,11 @@ h2 {
 	margin-top: 0px;
 	margin-bottom: 0px;
 }
-#hw1, #hw3 {
+#hw1, #hw3, #hw4 {
 	background-color: lightgray;
 }
 
-#hw1 > ul, #hw3 > ul {
+#hw1 > ul, #hw3 > ul, #hw4 > ul {
 	padding-left: 25px;
 	margin-top: 5px;
 }
